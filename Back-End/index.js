@@ -15,8 +15,7 @@ app.use(bodyParser.json());
 
 
 /* Router */
-require('./app/routes/customer.router')(app);
-require('./app/routes/staff.router')(app);
+require('./app/router/staff.router')(app);
 
 /* /Router */
 

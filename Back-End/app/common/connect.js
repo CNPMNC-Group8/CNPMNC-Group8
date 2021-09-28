@@ -6,12 +6,17 @@ var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'demo_node_api'
+    database: 'GROUP8_SQL'
 });
 
 
 connection.connect(function(err) {
-    if(err) console.log("Connecttion failed !!!")
+    if(err){
+        console.log("Connecttion database failed !!!");
+    }
+    else{
+        console.log("Connecttion database successful !!!");
+    }
 })
 
 module.exports = connection;

@@ -1,0 +1,15 @@
+CREATE DATABASE GROUP8_SQL default character set utf8mb4 collate 'utf8mb4_unicode_ci';
+USE GROUP8_SQL;
+
+CREATE TABLE STAFF(
+    EMPLOYEE_ID INT auto_increment,
+	USER_NAME VARCHAR(50),
+    PASSWORD VARCHAR(50),
+    BIRTH_DAY DATE,
+    EMAIL VARCHAR(10),
+    IMAGE VARCHAR(100),
+    SHIFT VARCHAR(100),
+    ROLL VARCHAR(10),
+    PRIMARY KEY(EMPLOYEE_ID)
+    
+);

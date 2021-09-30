@@ -1,12 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KFC</title>
 </head>
+
 <body>
-    
+    <div id="loader">
+        <div class="spinner-border" role="status"></div>
+    </div>
+    <div id="page">
+        <div class="wrapper clearfix">
+            <header id="header" class="clearfix">
+                <div class="container">
+                    <div class="kesoc pc">
+                        <div class="row no-gutters">
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-start">
+                        <div class="menu_btn mb hamburger hamburger--squeeze" data-target="#navbar-collapse">
+                            <img class="mb" src="#" />
+                        </div>
+                        <a class="navbar-brand" href="#">
+                            <img class="pc" src="#" />
+                            <img class="mb" src="#" />
+                        </a>
+                        <div class="navbar-collapse justify-content-end offcanvas-collapse" id="navbar-collapse">
+                            <div class="mb btn hamburger" data-target="#navbar-collapse"><i
+                                    class="fal fa-times-circle"></i></div>
+                            <ul id="menu_top" class="navbar-nav">
+                                <li class="nav-item mb">
+                                    <nav id="menu_top_header" class="nav justify-content-start">
+                                        <a href="#"><img src="#" alt=""></a>
+                                        <a href="#" class="delivery_service"><img class="" src="#" alt=""></a>
+                                    </nav>
+                                </li>
+                                <li class="nav-item mb">
+                                    <div class="lang_footer mb clearfix">
+                                        <nav class="nav justify-content-start">
+                                            <a class="nav-link active" href="#"><span>VN</span></a>
+                                            <a class="nav-link"><span>/</span></a> <a class="nav-link "
+                                                href="#"><span>EN</span></a>
+                                        </nav>
+                                    </div>
+                                </li>
+                                <li class="nav-item pc">
+                                    <div class="select_header select_lang clearfix">
+                                        <div class="dropdown">
+                                            <a class="btn btn-default dropdown-toggle" href="#" role="button"
+                                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">VN</a>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item active" href="javascript:void(0);">VN</a>
+                                                <a class="dropdown-item " href="#">EN</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="select_header select_user clearfix">
+                                        <div class="dropdown">
+                                            <a class="pc btn btn-default dropdown-toggle kfc_call_login" href="#"
+                                                role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">Đăng nhập</a>
+                                            <a class="mb btn btn-default dropdown-toggle kfc_call_login" href="#"
+                                                role="button" aria-haspopup="true" aria-expanded="false">Đăng nhập</a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div id="menu_middle" class="mb accordion">
+                                <ul id="accordionMenu" class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <a href="#" class="dropdown-toggle" data-toggle="collapse"
+                                            data-target="#accordionMenu_menu"><span>Thực đơn</span></a>
+                                        <div id="accordionMenu_menu" class="dropdown-list collapse"
+                                            data-parent="#accordionMenu">
+                                            <a href="#" class="dropdown-item" id="headerMenuCateMb-14">Combo 1 Người</a>
+                                            <a href="#" class="dropdown-item" id="headerMenuCateMb-15">Combo Nhóm</a>
+                                            <a href="#" class="dropdown-item" id="headerMenuCateMb-13">Menu Ưu Đãi</a>
+                                            <a href="#" class="dropdown-item" id="headerMenuALaCarteMb">Món lẻ</a>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item"><a href="#"><span>Nhà hàng</span></a></li>
+                                    <li class="list-group-item"><a href="#"><span>Tin khuyến mãi</span></a></li>
+                                    <li class="list-group-item"><a href="#"><span>Đặt tiệc sinh nhật</span></a></li>
+                                    <li class="list-group-item"><a href="#"><span>Thành viên</span></a></li>
+                                    <li class="list-group-item">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="collapse"
+                                            data-target="#accordionMenu_about_us"><span>Giới thiệu</span></a>
+                                        <div id="accordionMenu_about_us" class="dropdown-list collapse"
+                                            data-parent="#accordionMenu">
+                                            <a class="dropdown-item" href="#">KFC Việt Nam</a>
+                                            <a class="dropdown-item" href="#">Tin tức</a>
+                                            <a class="dropdown-item" href="#">Lịch sử hình thành</a>
+                                            <a class="dropdown-item" href="#">Tập đoàn Yum!</a>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="#" class="dropdown-toggle" data-toggle="collapse"
+                                            data-target="#accordionMenu_career"><span>Nghề nghiệp</span></a>
+                                        <div id="accordionMenu_career" class="dropdown-list collapse"
+                                            data-parent="#accordionMenu">
+                                            <a class="dropdown-item" href="#">Tuyển dụng</a>
+                                            <a class="dropdown-item" href="#">Trách nhiệm cộng đồng</a>
+                                            <a class="dropdown-item" href="#">Văn hóa KFC</a>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="collapse"
+                                            data-target="#accordionMenu_social"><span>Kết nối với KFC</span></a>
+                                        <div id="accordionMenu_social" class="dropdown-list collapse show"
+                                            data-parent="#accordionMenu">
+                                            <div class="nav_social">
+                                                <ul class="nav justify-content-start">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link facebook" href="#"><img src="#" /></a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link youtube" href="#"><img src="#" /></a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link instagram" href="#"><img src="#" /></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="menu_bottom" class="mb clearfix">
+                                <img src="#" alt="">
+                            </div>
+                        </div>
+                        <div class="cart_box" id="cartBox">
+                            <div class="dropdown">
+                                <a class="btn dropdown-toggle" href="#">
+                                    <span class="icon">
+                                        <span class="number" id="cartQty">0</span>
+                                    </span>
+                                    <span class="text">Giỏ hàng</span>
+                                    <span class="card-price" id="cartTotal"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                    <div id="sidebar" class="sidebar wap_nav_scroller">
+                        <div class="sidebar__inner wap_nav_fix">
+                            <div class="nav-scroller">
+                                <ul class="nav d-flex justify-content-start mb-0">
+                                    <li class="nav-item" id="headerMenuCate-14">
+                                        <a href="#" class="nav-link"><span>Combo 1 Người</span></a>
+                                    </li>
+                                    <li class="nav-item" id="headerMenuCate-15">
+                                        <a href="#" class="nav-link"><span>Combo Nhóm</span></a>
+                                    </li>
+                                    <li class="nav-item" id="headerMenuCate-13">
+                                        <a href="#" class="nav-link"><span>Menu Ưu Đãi</span></a>
+                                    </li>
+                                    <li class="nav-item" id="headerMenuALaCarte">
+                                        <a href="#" class="nav-link"><span>Món lẻ</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>
+    <!-- <footer> -->
+
+    <footer id="footer" class="clearfix">
+        <div class="container">
+            <div class="clearfix d-flex justify-content-center">
+                <a href="#" class="logo_footer">
+                    <img src="#" />
+                </a>
+            </div>
+            <div class="lang_footer mb clearfix">
+                <nav class="nav justify-content-center">
+                    <a class="nav-link active" href="#"><span>VN</span></a>
+                    <a class="nav-link" href="#"><span>/</span></a> <a class="nav-link "
+                        href="#"><span>EN</span></a>
+                </nav>
+            </div>
+            <div class="footer_top">
+                <div class="clearfix">
+                    <div class="row no-gutters">
+                        <div class="col">
+                            <div class="card_item">
+                                <div class="card_item_header">
+                                    <a href="#"><span>Thực đơn</span></a>
+                                </div>
+                                <div class="card_item_header">
+                                    <a href="#"><span>Nhà hàng</span></a>
+                                </div>
+                                <div class="card_item_header">
+                                    <a href="#"><span>Tin khuyến
+                                            mãi</span></a>
+                                </div>
+                                <div class="card_item_header">
+                                    <a href="#"><span>Đặt tiệc sinh
+                                            nhật</span></a>
+                                </div>
+                                <div class="card_item_header">
+                                    <a href="#"><span>Thành viên</span></a>
+                                </div>
+                                <div class="card_item_header d-inline-block d-lg-none">
+                                    <a href="#"><span>Giới thiệu</span></a>
+                                </div>
+                                <div class="card_item_header d-inline-block d-lg-none">
+                                    <a href="#"
+                                        target="_blank"><span>Nghề nghiệp</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card_item">
+                                <div class="card_item_header d-none d-lg-block">
+                                    <a href="#"><span>Giới thiệu</span></a>
+                                </div>
+                                <nav class="nav flex-column">
+                                    <a class="nav-link" href="#"><span>KFC Việt Nam</span></a>
+                                    <a class="nav-link" href="#"><span>Tin tức</span></a>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card_item">
+                                <div class="card_item_header d-none d-lg-block">
+                                    <a href="#"
+                                        target="_blank"><span>Nghề nghiệp</span></a>
+                                </div>
+                                <nav class="nav flex-column">
+                                    <a class="nav-link"
+                                        href="#"
+                                        target="_blank"><span>Tuyển dụng</span></a>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-4">
+                            <div class="row no-gutters">
+                                <div class="col-6">
+                                    <div class="card_item">
+                                        <div class="card_item_header">
+                                            <a href="#"><span>Kết nối với KFC</span></a>
+                                        </div>
+                                        <nav class="nav flex-column">
+                                            <a class="nav-link"
+                                                href="#"><span>Liên hệ</span></a>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="nav_social">
+                                        <ul class="nav justify-content-end">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#"
+                                                    target="_blank"><img
+                                                        src="#"
+                                                        alt=""></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#"
+                                                    target="_blank"><img
+                                                        src="#"
+                                                        alt=""></a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link instagram"
+                                                    href="#" target="_blank"><img
+                                                        src="#"
+                                                        alt=""></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form_enews clearfix" id="newsletter">
+                                        <div class="form_enews_lb clearfix"><span>Đăng ký nhận thông tin ưu đãi</span>
+                                        </div>
+                                        <form action="#"
+                                            id="frmNewsletters" method="post" accept-charset="utf-8">
+                                            <input type="hidden" name="csrf_site_name"
+                                                value="4ac7d9cd0bf05ad6705f6cbff3c19ef9" />
+                                            <div class="input-group">
+                                                <input type="text" name="email" class="form-control"
+                                                    placeholder="Nhập Email" aria-label="Nhập Email" value="" />
+                                                <div class="input-group-append">
+                                                    <input type="hidden" name="action" value="1" />
+                                                    <button class="btn btn-danger" type="submit"
+                                                        onclick="saveRegisterNewletters('frmNewsletters');"><span>Đăng
+                                                            ký</span></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bot">
+                <div class="row no-gutters">
+                    <div class="col-12 col-lg-6">
+                        <div class="clearfix">
+                            <span>
+                                <p><strong>Hello</strong></p>
+                                <p>Bình Thạnh, Hồ Chí Minh</p>
+                                <p>Điện thoại: <a href="#">(028) 38489828</a></p>
+                                <p>Email: <a href="#">lienhe@vietnam.com.vn</a></p>
+                                <p>Mã số thuế: 0100773885</p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="clearfix d-flex justify-content-center justify-content-lg-end">
+                            <a class="logo_bocongthuong"
+                                href="#"
+                                target="_blank"><img
+                                    src="#" /></a>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="text_copyright text-center clearfix">
+                            <span>
+                                <p><a href="#" onclick="loadTermsConditionsPopup();">Chính sách và quy
+                                        định chung</a> | <a href="#"
+                                        onclick="loadOperationPolicyPopup();">Chính sách hoạt động</a> | <a
+                                        href="#" onclick="loadInformationPolicyPopup();">Chính sách
+                                        bảo mật thông tin</a></p>
+                                <p>Copyright © 2021</p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="kesoc">
+                <div class="row no-gutters">
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                    <div class="col"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>

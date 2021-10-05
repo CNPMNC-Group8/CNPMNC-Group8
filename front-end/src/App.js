@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch} from "react-router-dom";
+import {routerAdmin} from './router';
+import AdminTemplate from './template/admin.layout';
+
+
 
 function App() {
+
+  const showMeuAdmin = (router)=>{
+    if(router && router.length >0){
+      return router.map((item,index)=>{
+        return <AdminTemplate key={index} exact={item.exact} path={item.path} name={item.name} component={item.component}/>
+      })
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <BrowserRouter>
+        <Switch>
+          {showMeuAdmin(routerAdmin)}
+        </Switch>
+      </BrowserRouter>
+
     </div>
   );
 }

@@ -1,0 +1,75 @@
+.admin-layout-container{
+    position: relative;
+    top: 0;
+    height: 100vh;
+}
+
+.admin-layout-left{
+    overflow: auto;
+    max-height: 100%;
+    height: 100%;
+    background-image:  url('../component/images/sidebar-1.jpg');
+    background-position: center center;
+    background-size: cover;
+    padding: 0px !important;  
+}
+
+.admin-layout-right{
+    overflow: auto;
+    max-height: 100%;
+    height: 100%;
+    background-color:rgba(203, 203, 210, 0.15);
+}
+
+/* admin-layout-left */
+.admin-layout-left .side-bar .side-bar-top{
+    width: 100%;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 15px;
+    
+}
+
+.admin-layout-left .side-bar a{
+    text-decoration: none;
+    color: #fff !important;
+}
+
+.admin-layout-left .side-bar .side-bar-top img{
+    margin-right:10px;
+    margin-left:15px;
+}
+
+.admin-layout-left .side-bar .side-bar-top h2{
+    margin-top:10px;
+}
+
+/* .admin-layout-left .side-bar .side-bar-content .side-bar-item{
+    
+} */
+
+.admin-layout-left .side-bar .side-bar-content .side-bar-item a{   
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-top:5px;
+}
+
+.main-nav-active{
+    background: rgba(255, 255, 255, 0.308);
+}
+
+.admin-layout-left .side-bar .side-bar-content .side-bar-item a h5{
+    font-size:14px;
+    line-height: 31px;
+    font-weight: 600;
+}
+
+.admin-layout-left .side-bar .side-bar-content .side-bar-item i{
+    margin-right: 25px;
+    font-size: 20px;
+    height:30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+/* admin-layout-left */

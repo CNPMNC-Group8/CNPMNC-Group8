@@ -9,6 +9,12 @@ import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import rootReducer from './redux/reducer'
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/js/bootstrap.min.js';
+
+
+
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

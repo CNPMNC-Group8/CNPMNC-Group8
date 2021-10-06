@@ -9,7 +9,7 @@ function App() {
   const showMeuAdmin = (router)=>{
     if(router && router.length >0){
       return router.map((item,index)=>{
-        return <AdminTemplate key={index} exact={item.exact} path={item.path} name={item.name} component={item.component}/>
+        return <AdminTemplate key={index} exact={item.exact} path={item.path} Component={item.Component}/>
       })
     }
   }

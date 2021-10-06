@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from "react-router-dom";
 
 class Navbar extends Component {
     constructor(props){
@@ -13,6 +14,9 @@ class Navbar extends Component {
         if(path && path === "/admin/dashboard") {
             this.setState({title: "Dashboard"})
         }
+        else if("/admin/employees"){
+            this.setState({title: "Employees"})
+        }
         else{
             this.setState({title: "Title"})
         }
@@ -21,12 +25,17 @@ class Navbar extends Component {
     render() {
         return (
             <div className="navbar">
-                <div className="d-flex justify-content-between navbar-content">
+                <div className="navbar-content">
                     <div className="navbar-left">
                         <h3>{this.state.title}</h3>
                     </div>
-                    <div className="navbar-left">
-                        
+                    <div className="navbar-right">
+                        <div className="navbar-right-item">
+                            <Link to="#">Account</Link>
+                        </div>
+                        <div className="navbar-right-item">
+                            <Link to="#">Log out</Link>
+                        </div>
                     </div>
                 </div>
             </div>

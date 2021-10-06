@@ -1,3 +1,7 @@
+body h1,h2,h3,h4,h5,h6,p,span,a{
+    font-family: 'Roboto', sans-serif;
+}
+
 .admin-layout-container{
     position: relative;
     top: 0;
@@ -19,6 +23,8 @@
     max-height: 100%;
     height: 100%;
     background-color:rgba(203, 203, 210, 0.15);
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 /* admin-layout-left */
@@ -72,4 +78,162 @@
     text-align: center;
 }
 
+.navbar{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar .navbar-content{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.navbar .navbar-content .navbar-left{
+    width: 20%;
+}
+
+.navbar .navbar-content .navbar-left h3{
+    font-weight: 700;
+    margin: 5px 0px;
+    font-size: 26px;
+    color: #888888;
+    line-height:40px;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+
 /* admin-layout-left */
+
+/* admin-layout-right */
+.navbar .navbar-content .navbar-right{
+    width:80%;
+    display:flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
+.navbar .navbar-content .navbar-right-item{
+    padding: 13px;
+}
+
+.navbar .navbar-content .navbar-right-item a{
+    font-size: 20px;
+    color: #888888;
+    line-height: 40px;
+    text-decoration: none;
+}
+
+.admin-layout-right-container{
+    width: 97%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+
+.admin-layout-right-container .employees-left{
+    background-color:green;
+}
+
+.admin-layout-right-container .employees-right{
+    background-color:#FFFFFF;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius:10px;
+}
+
+
+/* .admin-layout-right-container .employees-right .employees-right-card{
+    overflow: auto;
+    max-height: 100%;
+    height: 200px;
+    background-image:  url('../container/admin/employees/img/background-person-card.jpg');
+    background-position: center center;
+    background-size: cover;
+    padding: 0px !important;
+    position: relative;
+    
+} */
+
+.admin-layout-right-container .employees-right .employees-right-card{
+    position: relative;
+    height: 270px;
+}
+
+.admin-layout-right-container .employees-right .employees-right-card img{
+    width: 100%;
+    height: 200px;
+    
+}
+
+.admin-layout-right-container .employees-right .employees-right-card-person{
+    position: absolute;
+    top: 45%;
+    left:40%;
+
+}
+
+.admin-layout-right-container .employees-right .employees-right-card-person img{
+    width:150px;
+    height:150px;
+    border: 5px solid #FFFFFF;;
+    border-radius:100%;
+}
+
+.admin-layout-right-container .employees-right .employees-right-card-person i{
+    font-size: 20px;
+    height:40px;
+    width: 40px;
+    line-height:40px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 60%;
+    left:70%;
+    border-radius: 50%;
+    color: #FFFFFF;
+}
+
+.admin-layout-right-container .employees-right .employees-right-form{
+    width:96%;
+    margin: 0 auto;
+}
+
+.admin-layout-right-container .employees-right .employees-right-form .employees-right-item{
+    width: 100%;
+    margin:10px 0;
+}
+
+.admin-layout-right-container .employees-right .employees-right-form .employees-right-item .employees-right-item-seperate-2{
+    width: 49%;
+}
+
+.admin-layout-right-container .employees-right .employees-right-form .employees-right-item .employees-right-item-seperate-3{
+    width: 46%;
+    margin-right: 10px;
+}
+.admin-layout-right-container .employees-right .employees-right-form .employees-right-item .final-class{
+    margin-right: 0px;
+}
+
+.admin-layout-right-container .employees-right .employees-right-form label{
+    color: #9A9A9A;
+    font-size: 14px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.admin-layout-right-container .employees-right .employees-right-form input{
+    background-color: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    color: #565656;
+    padding: 8px 12px;
+    height: 40px;
+}
+
+
+
+
+/* admin-layout-right */

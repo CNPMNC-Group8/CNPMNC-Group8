@@ -33,7 +33,7 @@ class Sidebar extends Component {
                         
                     </div>
                     <div  className="side-bar-item">
-                        <NavLink to="/employees" className="d-flex flex-row bd-highlight mb-3" activeClassName="main-nav-active">
+                        <NavLink to="/admin/employees" className="d-flex flex-row bd-highlight mb-3" activeClassName="main-nav-active">
                             <div className="bd-highlight">
                                 <i className="fa fa-user-friends"></i>
                             </div>
@@ -42,38 +42,11 @@ class Sidebar extends Component {
                         
                     </div>
                     <div  className="side-bar-item">
-                        <NavLink to='/customer' className="d-flex flex-row bd-highlight mb-3" activeClassName="main-nav-active">
+                        <NavLink to='/admin/customer' className="d-flex flex-row bd-highlight mb-3" activeClassName="main-nav-active">
                             <div className="bd-highlight">
                                 <i className="fab fa-twitter"></i>
                             </div>
                             <div className="bd-highlight"><h5>CUSTOMER</h5></div>
-                        </NavLink>
-                        
-                    </div>
-                    <div className="side-bar-item">
-                        <NavLink to="/admin" className="d-flex flex-row bd-highlight mb-3" activeClassName="main-nav-active">
-                            <div className="bd-highlight">
-                                <i className="fab fa-twitter"></i>
-                            </div>
-                            <div className="bd-highlight"><h5>DASHBOARD</h5></div>
-                        </NavLink>
-                        
-                    </div>
-                    <div className="side-bar-item">
-                        <NavLink to="/admin" className="d-flex flex-row bd-highlight mb-3" activeClassName="main-nav-active">
-                            <div className="bd-highlight">
-                                <i className="fab fa-twitter"></i>
-                            </div>
-                            <div className="bd-highlight"><h5>DASHBOARD</h5></div>
-                        </NavLink>
-                        
-                    </div>
-                    <div className="side-bar-item">
-                        <NavLink to="/admin" className="d-flex flex-row bd-highlight mb-3" activeClassName="main-nav-active">
-                            <div className="bd-highlight">
-                                <i className="fab fa-twitter"></i>
-                            </div>
-                            <div className="bd-highlight"><h5>DASHBOARD</h5></div>
                         </NavLink>
                         
                     </div>

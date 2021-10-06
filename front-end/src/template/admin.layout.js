@@ -14,22 +14,24 @@ function AdminLayout(props){
             <div className="col-md-2 admin-layout-left" >
                 <Sidebar />
             </div>
-            <div className="col-md-10 admin-layout-right" >
+            <div className="col-md-10 admin-layout-right container" >
                 <Navbar path= {path}/>
-                {props.children}
+                <div className="admin-layout-right-container">
+                    {props.children}
+                </div>
             </div>
         </div>
     )
 }
 
-export default function AdminTemplate({component,...props}){
+export default function AdminTemplate({Component,...props}){
     return(
         <Route {...props}
             render = {(propsComponent)=>{
                 console.log("propsComponent from admin.layout",propsComponent);
                 return(
                     <AdminLayout>
-                        <component {...propsComponent} />
+                        <Component {...propsComponent} />
                     </AdminLayout>           
                 )
                 

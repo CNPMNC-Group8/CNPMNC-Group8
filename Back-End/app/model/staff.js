@@ -1,5 +1,11 @@
 const db = require('../common/connect');
-var jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
+const moment =  require('moment');
+
+
+
+
+
 
 const Staff = function(staff) {
     this.employee_id = staff.employee_id;
@@ -9,7 +15,7 @@ const Staff = function(staff) {
     this.birth_day = staff.birth_day;
     this.email = staff.email;
     this.image = staff.image;
-    this.position = staff.position
+    this.position = staff.position;
     this.roll = staff.roll;
     this.delete_flag = staff.delete_flag;
 }
@@ -21,6 +27,13 @@ Staff.list = function(result) {
             result("Lấy danh sách Staff không thành công :(");
         }
         else{
+            staff.map(item =>{
+                // console.log("image",item.IMAGE)
+                item.IMAGE = `http://localhost:9999/get-image/${item.IMAGE}`;
+                item.BIRTH_DAY = moment(item.BIRTH_DAY).format("DD/MM/YYYY")
+                console.log(item.BIRTH_DAY)
+            })
+            // console.log("staff",staff)
             result(staff)
         }
     });
@@ -33,25 +46,39 @@ Staff.detail = function(employee_id,result) {
             result("Không có nhân viên cần tìm");
         }
         else{
+            staff.map(item =>{
+                // console.log("image",item.IMAGE)
+                item.image = `http://localhost:9999/get-image/${item.IMAGE}`
+            })
+            // console.log("staff",staff)
+            result(staff)
             result(staff[0]);
         }
     })
 }
 
-Staff.create = function(data,result){
-    db.query("INSERT INTO STAFF SET?", data,function(err){
-        if(err){
-            result("Đăng ký thất bại :(");
-        }
-        else{
-            result("Đăng ký thành công :)");
-        }
-    })
+Staff.create = function(data,file,result){
+    const query = "INSERT INTO STAFF (FULL_NAME,USER_NAME,PASSWORD,BIRTH_DAY,EMAIL,IMAGE,POSITION,ROLL,DELETE_FLAG) VALUES(?,?,?,?,?,?,?,?,?)";
+    if(file !== undefined){
+        db.query(query, [data.full_name, data.user_name, data.password, data.birth_day, data.email, file.filename, data.position, data.roll, data.delete_flag],function(err){
+            if(err || file === undefined){
+                result("Đăng ký thất bại :(");
+            }
+            else{
+                result("Đăng ký thành công :)");
+            }
+        })
+    }
+    else{
+        result("Đăng ký thất bại :(");
+    }
+
 }
 
 Staff.update = function(data,result){
     const query = "UPDATE STAFF SET FULL_NAME= ? , USER_NAME = ? , PASSWORD = ? , BIRTH_DAY = ? , EMAIL= ? , IMAGE = ? , POSITION = ? , ROLL= ?, DELETE_FLAG = ?  WHERE EMPLOYEE_ID = ? ";
-    db.query(query,[data.full_name, data.user_name, data.password, data.birth_day, data.email, data.image, data.position, data.roll, data.delete_flag,data.employee_id],function(err){
+    console.log(data.image)
+    db.query(query,[data.full_name, data.user_name, data.password, data.birth_day, data.email, file.filename, data.position, data.roll, data.delete_flag,data.employee_id],function(err){
         if(err){
             result("Cập nhật không thành công :(");
         }

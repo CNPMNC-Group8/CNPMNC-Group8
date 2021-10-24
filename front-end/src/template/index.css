@@ -102,6 +102,44 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
     padding-top: 10px;
 }
 
+.admin-layout-right-container .employees-left .employees-admin h3{
+    text-align: center;
+    color: #333333;
+    font-weight: 500;
+    font-size: 22px;
+    padding-bottom: 20px;
+}
+
+.admin-layout-right-container .employees-left .employees-admin-search{
+    border-bottom: 1px solid  #333333;
+    padding-top: 10px;
+    width:330px;
+    background-color: rgba(0,0,0,.05);
+}
+
+.admin-layout-right-container .employees-left .employees-admin-search i{
+    font-size: 20px;
+    color: #9A9A9A;
+}
+
+.admin-layout-right-container .employees-left .employees-admin-search input{
+    background-color: transparent;
+    border: none;
+    color: #9A9A9A;
+    width:300px;
+    padding-bottom:10px;
+    padding-left: 10px;
+}
+
+.admin-layout-right-container .employees-left .employees-admin-search input:focus-visible{
+    outline:none !important;
+}
+
+.admin-layout-right-container .employees-left .employees-admin-search input::-webkit-input-placeholder{
+    font-size: 20px;
+    color: #9A9A9A;
+}
+
 
 /* admin-layout-left */
 
@@ -131,9 +169,9 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
 }
 
 
-.admin-layout-right-container .employees-left{
+/* .admin-layout-right-container .employees-left{
     background-color:green;
-}
+} */
 
 .admin-layout-right-container .employees-right{
     background-color:#FFFFFF;

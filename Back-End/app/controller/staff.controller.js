@@ -1,4 +1,4 @@
-var Staff = require('../model/staff');
+const Staff = require('../model/staff');
 
 
 exports.get_list_employee = function(req,res){
@@ -15,17 +15,23 @@ exports.details_employee = function(req,res){
 }
 
 exports.insert_employee = function(req,res){
-    var data = req.body;
-    Staff.create(data,function(response){
+    let data = req.body;
+    let file = req.file;
+    console.log("file",req.file);
+    Staff.create(data,file,function(response){
         res.send({result:response});
     })
 }
 
 exports.update_employee = function(req,res){
     let data = req.body;
-    Staff.update(data,function(response){
+    let file = req.file;
+    console.log("file",req.file);
+    Staff.update(data,file,function(response){
         res.send({result:response});
     })
+
+
 }
 
 exports.delete_employee = function(req,res){
@@ -48,6 +54,4 @@ exports.login_employee = function(req,res){
         res.send(response);
     })
 }
-
-
 

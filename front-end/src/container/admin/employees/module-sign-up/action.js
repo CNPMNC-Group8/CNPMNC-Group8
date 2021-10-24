@@ -1,6 +1,7 @@
 import { POST_SIGNUP_REQUEST,
         POST_SIGNUP_SUCCESS,
-        POST_SIGNUP_FALIED} 
+        POST_SIGNUP_FALIED
+    } 
         from './constant.js'
 
 import Axios from 'axios'
@@ -12,13 +13,17 @@ export const actPostSignUpEmployeesAPI = (userSignUp) =>{
         Axios({
             method:"POST",
             url:"http://localhost:9999/api/staff/insert",
+            // headers:{ 
+            //     "Content-Type": "multipart/form-data"
+            // },
             data:userSignUp
         })
         .then(result =>{
             dispatch(actPostSignUpEmployeesSuccess(result.data))
+            console.log(result.data)
         })
         .catch(err =>{
-            console.log(err)
+            dispatch(actPostSignUpEmployeesFailed(err))
         })
         
     }

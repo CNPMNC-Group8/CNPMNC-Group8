@@ -1,7 +1,12 @@
 /* Set up express  */
 
 var express = require('express');
+var path = require('path');
 var app = express();
+
+
+const cors = require("cors"); // connect local http
+
 
 /* Set up express  */
 
@@ -10,6 +15,11 @@ var app = express();
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(express.json());
+app.use(cors());
+// app.use(fileUpload()); //upload img
+// app.use(express.static(path.join(__dirname, 'image')));
 
 /* /Config body-parser */
 

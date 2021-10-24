@@ -1,6 +1,7 @@
 import { POST_SIGNUP_REQUEST,
         POST_SIGNUP_SUCCESS,
-        POST_SIGNUP_FALIED} 
+        POST_SIGNUP_FALIED
+    } 
         from './constant.js'
 
     let initialState = {

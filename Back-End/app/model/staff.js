@@ -31,7 +31,7 @@ Staff.list = function(result) {
                 // console.log("image",item.IMAGE)
                 item.IMAGE = `http://localhost:9999/get-image/${item.IMAGE}`;
                 item.BIRTH_DAY = moment(item.BIRTH_DAY).format("DD/MM/YYYY")
-                console.log(item.BIRTH_DAY)
+                // console.log(item.BIRTH_DAY)
             })
             // console.log("staff",staff)
             result(staff)

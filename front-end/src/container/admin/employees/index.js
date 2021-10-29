@@ -21,8 +21,15 @@ class Employees extends Component {
                 position:"",
                 roll:"", 
             },
-            image_upload:personCard
+            image_upload:personCard,
+            filter_array:"",      
         }
+    }
+
+    handleOnFilterArray = event =>{
+        this.setState({
+            filter_array:event.target.value 
+        })
     }
 
     handleOnChange = event =>{
@@ -47,14 +54,10 @@ class Employees extends Component {
         }
         else{
             this.setState({
-                employees: {...this.state.employees, [name]:value}, 
+                employees: {...this.state.employees, [name]:value},               
             })
         }
-
         console.log(name,value);
-
-        
-       
     }
 
     handleOnSubmit = event =>{
@@ -71,13 +74,24 @@ class Employees extends Component {
         data.append("roll", this.state.employees.roll)
         // this.props.PostSignUp(data)
         console.log('data',Array.from(data))
-
+        console.log( "this.props.listEmployees.result",this.props.listEmployees.result)
+        setTimeout(() =>this.props.FetchListEmployees(),100)
         this.props.PostSignUp(data)
      }
 
     componentDidMount(){
         this.props.FetchListEmployees();
     }
+
+    getEmployeesInTable = user =>{
+        // console.log("event in table", event)
+        console.log("id from table", user)
+    }
+
+
+
+
+
 
     renderHTMLAdmin = () =>{
         const {listEmployees} = this.props
@@ -87,15 +101,54 @@ class Employees extends Component {
         // }
 
         // const listEmployeesAdmin =  listEmployees.result.filter(item =>(item.ROLL === "ADMIN"))
-        
 
         if(listEmployees.result && listEmployees.result.length > 0){
-            const listFilterEmployees = listEmployees.result.filter(item => item.ROLL === "ADMIN")
+            const listFilterEmployees = listEmployees.result.filter(item => {
+                if(this.state.filter_array === ""){
+                    return listEmployees.result
+                }
+                else if(item.USER_NAME.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listEmployees.result
+                }
+                else if(item.PASSWORD.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listEmployees.result
+                }
+                else if(item.FULL_NAME.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listEmployees.result
+                }
+                else if(item.EMAIL.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listEmployees.result
+                }
+                else if(item.BIRTH_DAY.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listEmployees.result
+                }
+                else if(item.POSITION.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listEmployees.result
+                }
+                else if(item.ROLL.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listEmployees.result
+                }
+            })
             console.log("listFilterEmployees", listFilterEmployees)
             // console.log("listEmployeesAdmin",listEmployees.result.filter(item => item.ROLL === "ADMIN"))
-            return listEmployees.result.map((item, index)=>{
+            return listFilterEmployees.map((item, index)=>{
                 return(
-                    <tr key={index}>
+                    <tr key={index} id ={item.EMPLOYEE_ID} onClick={()=>{
+                        this.setState({
+                            image_upload:item.IMAGE,
+                            employees:{...this.state.employees, 
+                                                                employee_id:item.EMPLOYEE_ID,
+                                                                user_name:item.USER_NAME,
+                                                                password:item.PASSWORD,
+                                                                full_name:item.FULL_NAME,
+                                                                email:item.EMAIL,
+                                                                birth_day:item.BIRTH_DAY,
+                                                                position:item.POSITION,
+                                                                roll:item.ROLL,
+                                    },                                    
+                        })
+                        console.log("item click", item)
+                    }}>
                         <th scope="row" style={{display:"none"}}>{item.EMPLOYEE_ID}</th>
                         <td style={{display:"none"}}>{item.IMAGE}</td>
                         <td>{item.USER_NAME}</td>
@@ -115,11 +168,11 @@ class Employees extends Component {
     render() {
         return (
             <div className="employees-content row">
-                <div className="employees-left col-lg-9">
+                <div className="employees-left col-lg-8">
                     <div className="employees-admin">
                         <h3>List user Admin</h3>
                         <label className="employees-admin-search">                               
-                                <input type="text" name="user_name" placeholder="Search"/><i className="fa fa-search"></i>
+                                <input type="text" name="filter_array" placeholder="Search" value={this.state.filter_array} onChange={this.handleOnFilterArray}/><i className="fa fa-search"></i>
                         </label>
                         <table className="table">
                             <thead>
@@ -151,7 +204,7 @@ class Employees extends Component {
 
                     </div>
                 </div>
-                <form className="employees-right col-lg-3" onSubmit={this.handleOnSubmit} method="post">
+                <form className="employees-right col-lg-4" onSubmit={this.handleOnSubmit} method="post">
                     <div className="employees-right-card">
                         <img src={cardPersonBg} name="image_upload"  alt="admin"/>
                         <div className="employees-right-card-person">
@@ -196,7 +249,11 @@ class Employees extends Component {
                             </label>
                             <label className="bd-highlight employees-right-item-seperate-3 final-class">
                                 Roll:<br/>
-                                <input type="text" name="roll" id="roll" value={this.state.employees.roll} style={{width:"100%"}} onChange={this.handleOnChange}/>
+                                <input type="text" name="roll" id="roll-input" value={this.state.employees.roll} style={{width:"100%", display:  this.state.employee_id !== "" ? 'block' : 'none'}} onChange={this.handleOnChange} />
+                                <select name="roll" id="roll-select"  style={{width:"100%" }} onChange={this.handleChange}>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                </select>
                             </label>
                         </div>
                         <button className="btn btn-outline-danger" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px"}}>Add Employees</button>
@@ -211,7 +268,8 @@ class Employees extends Component {
 
 export const mapStateToProp = state =>{
     return {
-        listEmployees: state.listEmployeesReducer.listEmployees
+        listEmployees: state.listEmployeesReducer.listEmployees,
+        userSignUp: state.userSignUpEmployeesReducer.userSignUp
     }
 }
 
@@ -222,10 +280,8 @@ export const mapDispatchToProp = dispatch =>{
             dispatch(actFetchListEmployeesAPI())
         },
         PostSignUp:( userSignUp) =>{
-            dispatch(actPostSignUpEmployeesAPI(userSignUp))
+            dispatch(actPostSignUpEmployeesAPI(userSignUp));
         },
-
-
     }
 }
 

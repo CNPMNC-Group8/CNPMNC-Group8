@@ -5,7 +5,7 @@ import { POST_SIGNUP_REQUEST,
         from './constant.js'
 
     let initialState = {
-        userSignUp: {},
+        userSignUp: "",
         userSignUpLoading:false,
         userSignUpErr :null
     }
@@ -14,7 +14,7 @@ import { POST_SIGNUP_REQUEST,
         switch(action.type){
 
             case POST_SIGNUP_REQUEST:{
-                state.userSignUp = {};
+                state.userSignUp = "";
                 state.userSignUpLoading = true;
                 state.userSignUpErr = null;
 
@@ -30,7 +30,7 @@ import { POST_SIGNUP_REQUEST,
             }
 
             case POST_SIGNUP_FALIED:{
-                state.userSignUp = {};
+                state.userSignUp = "";
                 state.userSignUpLoading = false;
                 state.userSignUpErr = action.err;
                 

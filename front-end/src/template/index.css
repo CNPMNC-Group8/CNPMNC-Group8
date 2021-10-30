@@ -102,6 +102,31 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
     padding-top: 10px;
 }
 
+.admin-layout-right-container .employees-content .employees-left .employees-admin .table {
+    height:400px !important;
+    overflow: auto !important;
+}
+
+.admin-layout-right-container .employees-content .employees-left .employees-admin .table tr:hover{
+    background-color: #dddddd;
+}
+
+.admin-layout-right-container .employees-content .employees-left .employees-admin .employees-admin-action .employees-admin-action-i i{
+    font-size: 20px;
+    /* margin-top: 10px; */
+    margin-right: 15px;
+    line-height: 30px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    padding:10px 15px;
+    cursor: pointer;
+}
+
+.admin-layout-right-container .employees-content .employees-left .employees-admin .employees-admin-action .employees-admin-action-i i:hover{
+    background-color: #9A9A9A;
+}
+
 .admin-layout-right-container .employees-left .employees-admin h3{
     text-align: center;
     color: #333333;
@@ -213,8 +238,8 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
 }
 
 .admin-layout-right-container .employees-right .employees-right-card-person img{
-    width:150px;
-    height:150px;
+    width:130px;
+    height:130px;
     border: 5px solid #FFFFFF;;
     border-radius:100%;
 }
@@ -241,6 +266,9 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
 .admin-layout-right-container .employees-right .employees-right-form .employees-right-item{
     width: 100%;
     margin:10px 0;
+}
+.admin-layout-right-container .employees-right .employees-right-form .employees-right-item #employee_id:disabled{
+    background: #dddddd;
 }
 
 .admin-layout-right-container .employees-right .employees-right-form .employees-right-item .employees-right-item-seperate-2{
@@ -269,6 +297,19 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
     color: #565656;
     padding: 8px 12px;
     height: 40px;
+}
+
+.admin-layout-right-container .employees-right .employees-right-form select{
+    background-color: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    color: #565656;
+    padding: 8px 12px;
+    height: 40px;
+}
+
+.admin-layout-right-container .employees-right .employees-right-form select:focus-visible{
+    outline:none;
 }
 
 

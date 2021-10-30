@@ -22,8 +22,17 @@ class Employees extends Component {
                 roll:"", 
             },
             image_upload:personCard,
-            filter_array:"",      
+            filter_array:"",
+            roll_input:"none",
+            position_input:"none",
+            roll_select:"block",
+            position_select: "block",           
+            employee_id:"none",
+            insertBtn:"none",
+            updateBtn:"none"
         }
+        this.handleChange = this.handleOnChange.bind(this);
+        this.handleSubmit = this.handleOnSubmit.bind(this);
     }
 
     handleOnFilterArray = event =>{
@@ -79,6 +88,8 @@ class Employees extends Component {
         this.props.PostSignUp(data)
      }
 
+
+
     componentDidMount(){
         this.props.FetchListEmployees();
     }
@@ -86,6 +97,26 @@ class Employees extends Component {
     getEmployeesInTable = user =>{
         // console.log("event in table", event)
         console.log("id from table", user)
+    }
+
+    newFormOnClick = () =>{
+        this.setState({
+            employees:{...this.state.employees, employee_id:""
+                                              , user_name:""
+                                              ,password:""
+                                              ,full_name:""
+                                              ,email:""
+                                              ,birth_day:""
+                                              ,position:""
+                                              ,roll:""
+                                        },
+                                        roll_input:"none",
+                                        position_input:"none",
+                                        roll_select:"block",
+                                        position_select:"block",
+                                        employee_id:"none",
+                                        insertBtn:"block" 
+        })
     }
 
 
@@ -133,7 +164,7 @@ class Employees extends Component {
             // console.log("listEmployeesAdmin",listEmployees.result.filter(item => item.ROLL === "ADMIN"))
             return listFilterEmployees.map((item, index)=>{
                 return(
-                    <tr key={index} id ={item.EMPLOYEE_ID} onClick={()=>{
+                    <tr style={{cursor:"pointer"}} key={index} id ={item.EMPLOYEE_ID} onClick={event=>{
                         this.setState({
                             image_upload:item.IMAGE,
                             employees:{...this.state.employees, 
@@ -145,8 +176,22 @@ class Employees extends Component {
                                                                 birth_day:item.BIRTH_DAY,
                                                                 position:item.POSITION,
                                                                 roll:item.ROLL,
-                                    },                                    
+                                    },
+                            roll_input:"block",
+                            position_input:"block",
+                            roll_select:"none",
+                            position_select:"none",
+                            employee_id:"block",
+                            insertBtn:"none"                                   
                         })
+
+                        if(event.nativeEvent.which === 1){
+                            console.log("Left click")
+                        }
+                        else if(event.nativeEvent.which === 3){
+                            console.log("Right click")
+                        }
+
                         console.log("item click", item)
                     }}>
                         <th scope="row" style={{display:"none"}}>{item.EMPLOYEE_ID}</th>
@@ -167,13 +212,22 @@ class Employees extends Component {
 
     render() {
         return (
-            <div className="employees-content row">
+            <div className="employees-content row" >
                 <div className="employees-left col-lg-8">
-                    <div className="employees-admin">
+                    <div className="employees-admin" style={{backgroundColor:"#FFFFFF", borderRadius:"10px",padding:"0 20px"}}>
                         <h3>List user Admin</h3>
-                        <label className="employees-admin-search">                               
+                        <div className="d-flex flex-row bd-highlight mb-3 employees-admin-action">
+                            <div className="p-2 bd-highlight">
+                            <label className="employees-admin-search" style={{marginBottom:"20px" }}>                               
                                 <input type="text" name="filter_array" placeholder="Search" value={this.state.filter_array} onChange={this.handleOnFilterArray}/><i className="fa fa-search"></i>
-                        </label>
+                            </label>
+                            </div>
+                            <div className="p-2 bd-highlight employees-admin-action-i" style={{marginLeft:"20px"}}><i className="fa fa-chevron-left"></i></div>
+                            <div className="p-2 bd-highlight employees-admin-action-i"><i className="fa fa-chevron-right"></i></div>
+                            <div className="p-2 bd-highlight employees-admin-action-i" onClick={this.newFormOnClick}><i className="fa fa-plus"></i></div>
+                            <div className="p-2 bd-highlight employees-admin-action-i" onClick={this.newFormOnClick}><i className="fa fa-plus"></i></div>
+                        </div>
+
                         <table className="table">
                             <thead>
                                 <tr>                                
@@ -216,9 +270,9 @@ class Employees extends Component {
                         </div>
                     </div>
                     <div className="employees-right-form">
-                        <label className="employees-right-item">
+                        <label className="employees-right-item" style={{display:this.state.employee_id}}>
                             Employee ID:<br/>
-                            <input type="text" name="employee_id" value={this.state.employees.employee_id} style={{width:"100%"}} onChange={this.handleOnChange}/>
+                            <input type="text" name="employee_id" id="employee_id" value={this.state.employees.employee_id} style={{width:"100%"}} disabled="disabled" onChange={this.handleOnChange}/>
                         </label>
                         <div className="employees-right-item d-flex justify-content-between">
                             <label className="bd-highligh employees-right-item-seperate-2">
@@ -245,18 +299,25 @@ class Employees extends Component {
                             </label>
                             <label className="bd-highlight employees-right-item-seperate-3 ">
                                 Position:<br/>
-                                <input type="text" name="position" id="position" value={this.state.employees.position} style={{width:"100%"}} onChange={this.handleOnChange}/>
+                                <input type="text" name="position" id="position" value={this.state.employees.position} style={{width:"100%", display : this.state.position_input}} onChange={this.handleOnChange}/>
+                                <select name="position" id="position_select" value={this.state.employees.position}  style={{width:"100%", display:this.state.position_select }} onChange={this.handleChange}>
+                                    <option value="">Choose option</option>
+                                    <option value="Leader">Leader</option>
+                                    <option value="Developer">Developer</option>
+                                </select>
                             </label>
                             <label className="bd-highlight employees-right-item-seperate-3 final-class">
                                 Roll:<br/>
-                                <input type="text" name="roll" id="roll-input" value={this.state.employees.roll} style={{width:"100%", display:  this.state.employee_id !== "" ? 'block' : 'none'}} onChange={this.handleOnChange} />
-                                <select name="roll" id="roll-select"  style={{width:"100%" }} onChange={this.handleChange}>
+                                <input type="text" name="roll" id="roll_input" value={this.state.employees.roll} style={{width:"100%", display : this.state.roll_input}} onChange={this.handleOnChange} />
+                                <select name="roll" id="roll_select" value={this.state.employees.roll}   style={{width:"100%", display:this.state.roll_select }} onChange={this.handleChange}>
+                                    <option value="">Choose option</option>
                                     <option value="Admin">Admin</option>
                                     <option value="User">User</option>
                                 </select>
                             </label>
                         </div>
-                        <button className="btn btn-outline-danger" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px"}}>Add Employees</button>
+                        <button className="btn btn-outline-success" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.insertBtn}}>Add Employees</button>
+                        <button className="btn btn-outline-danger" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.updateBtn}}>Update Employees</button>
                     </div>
                 </form>
 

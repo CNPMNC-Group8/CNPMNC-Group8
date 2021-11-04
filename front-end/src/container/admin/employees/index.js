@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import cardPersonBg from "./img/background-person-card.jpg"
 import personCard from "./img/hoang2.JPG"
 
+
 import {actPostSignUpEmployeesAPI} from "./module-sign-up/action"
 import {actFetchListEmployeesAPI} from "./module-list-employees/action"
+import {actUpdateEmployeesAPI} from "./module-update-employee/action"
+import {actDeleteEmployeeAPI} from "./module-delete-employee/action"
+import {actDeleteEmployeeFlgAPI} from "./module-delete-employee-flg/action"
 import {connect} from 'react-redux'
+
+
 
 class Employees extends Component {
     constructor(props){
@@ -27,9 +33,14 @@ class Employees extends Component {
             position_input:"none",
             roll_select:"block",
             position_select: "block",           
-            employee_id:"none",
+            employee_id_label:"none",
             insertBtn:"none",
-            updateBtn:"none"
+            updateBtn:"none",
+            deleteBtn:"none",
+            itemOld:{},
+            checked:`<i className="fa fa-wifi"></i>`
+
+            
         }
         this.handleChange = this.handleOnChange.bind(this);
         this.handleSubmit = this.handleOnSubmit.bind(this);
@@ -60,13 +71,20 @@ class Employees extends Component {
             }
             
             reader.readAsDataURL(event.target.files[0])
+            console.log("event.target.checked", event.target.checked)
         }
         else{
             this.setState({
-                employees: {...this.state.employees, [name]:value},               
+                employees: {...this.state.employees, [name]:value},              
             })
+            console.log("event.target.checked", event.target.checked)
         }
         console.log(name,value);
+        // this.setState({
+        //     checked: "false"
+        // })
+        console.log("checked", event.target.checked)
+        
     }
 
     handleOnSubmit = event =>{
@@ -82,10 +100,27 @@ class Employees extends Component {
         data.append("position", this.state.employees.position)
         data.append("roll", this.state.employees.roll)
         // this.props.PostSignUp(data)
-        console.log('data',Array.from(data))
-        console.log( "this.props.listEmployees.result",this.props.listEmployees.result)
+  
         setTimeout(() =>this.props.FetchListEmployees(),100)
-        this.props.PostSignUp(data)
+        if(this.state.employees.employee_id === ""){
+            console.log('data',Array.from(data))
+            console.log( "this.props.listEmployees.result",this.props.listEmployees.result)
+
+            this.props.PostSignUp(data)
+        }
+        else if(this.state.employee_id !== ""){
+            data.append("employee_id", this.state.employees.employee_id)
+
+            console.log('data',Array.from(data))
+            console.log( "this.props.listEmployees.result",this.props.listEmployees.result)
+            // this.setState({
+            //     employee_id:"none"
+            // })
+            this.props.PostUpdateEmployee(data)
+            // this.setState({
+            //     employee_id:"block"
+            // })
+        }
      }
 
 
@@ -109,18 +144,48 @@ class Employees extends Component {
                                               ,birth_day:""
                                               ,position:""
                                               ,roll:""
+                                              ,image:""
                                         },
+                                        image_upload:personCard,
                                         roll_input:"none",
                                         position_input:"none",
                                         roll_select:"block",
                                         position_select:"block",
-                                        employee_id:"none",
-                                        insertBtn:"block" 
+                                        employee_id_label:"none",
+                                        insertBtn:"block",
+                                        updateBtn:"none",
+                                        deleteBtn:"none"
+                                        
         })
+
+    }
+    
+    editFormOnClick = () =>{
+        if(this.state.employees.employee_id !== ""){
+            this.setState({
+                updateBtn:"block",
+                insertBtn:"none",
+                deleteBtn:"none" 
+            })
+        }
+
     }
 
+    deleteEmployeeOnClick = () =>{
+        this.props.DeleteEmployee(this.state.employees.employee_id)
+        setTimeout(()=>this.props.FetchListEmployees, 10)
+        console.log("employee_id in deleteEmployeeOnClick",this.state.employees.employee_id)
+        
+    }
 
-
+    deleteFlgEmployeeOnclick = event =>{
+        event.preventDefault()
+        const deleteFlgEmployee = {
+            employee_id :this.state.employees.employee_id,
+            delete_flag: "Y",
+        }
+        this.props.DeleteEmployeeFlg(deleteFlgEmployee)
+    }
 
 
 
@@ -132,7 +197,7 @@ class Employees extends Component {
         // }
 
         // const listEmployeesAdmin =  listEmployees.result.filter(item =>(item.ROLL === "ADMIN"))
-
+        
         if(listEmployees.result && listEmployees.result.length > 0){
             const listFilterEmployees = listEmployees.result.filter(item => {
                 if(this.state.filter_array === ""){
@@ -164,7 +229,7 @@ class Employees extends Component {
             // console.log("listEmployeesAdmin",listEmployees.result.filter(item => item.ROLL === "ADMIN"))
             return listFilterEmployees.map((item, index)=>{
                 return(
-                    <tr style={{cursor:"pointer"}} key={index} id ={item.EMPLOYEE_ID} onClick={event=>{
+                    <tr className="" style={{cursor:"pointer"}} key={index} id ={item.EMPLOYEE_ID} onClick={event=>{
                         this.setState({
                             image_upload:item.IMAGE,
                             employees:{...this.state.employees, 
@@ -181,17 +246,29 @@ class Employees extends Component {
                             position_input:"block",
                             roll_select:"none",
                             position_select:"none",
-                            employee_id:"block",
-                            insertBtn:"none"                                   
+                            employee_id_label:"block",
+                            insertBtn:"none",
+                            deleteBtn:"block"
+                                                              
                         })
+                        
+                           
+                            event.target.parentNode.classList.add("table-selected-employee")
+                            // console.log("event.target.parentNode",event.target.parentNode)
+                            let itemOld = event.target.parentNode
+                            this.setState({
+                                itemOld : itemOld
+                            })
+                            
+                            if(this.state.itemOld.children  && this.state.itemOld !== event.target.parentNode){
+                                this.state.itemOld.classList.remove("table-selected-employee")
+                                // console.log("item old click", this.state.itemOld.children)
+                            }
+                        
+                    
+                        
 
-                        if(event.nativeEvent.which === 1){
-                            console.log("Left click")
-                        }
-                        else if(event.nativeEvent.which === 3){
-                            console.log("Right click")
-                        }
-
+                        console.log("event", event)
                         console.log("item click", item)
                     }}>
                         <th scope="row" style={{display:"none"}}>{item.EMPLOYEE_ID}</th>
@@ -225,7 +302,12 @@ class Employees extends Component {
                             <div className="p-2 bd-highlight employees-admin-action-i" style={{marginLeft:"20px"}}><i className="fa fa-chevron-left"></i></div>
                             <div className="p-2 bd-highlight employees-admin-action-i"><i className="fa fa-chevron-right"></i></div>
                             <div className="p-2 bd-highlight employees-admin-action-i" onClick={this.newFormOnClick}><i className="fa fa-plus"></i></div>
-                            <div className="p-2 bd-highlight employees-admin-action-i" onClick={this.newFormOnClick}><i className="fa fa-plus"></i></div>
+                            <div className="p-2 bd-highlight employees-admin-action-i" onClick={this.editFormOnClick}><i className="fa fa-edit"></i></div>
+                            <div className="p-2 bd-highlight employees-admin-action-i" onClick={this.deleteEmployeeOnClick}><i className="fa fa-trash"></i></div>
+                            <div className="p-2 bd-highlight employees-admin-action-i" >
+                                <i className="fa fa-wifi"></i>
+                            </div>
+                            
                         </div>
 
                         <table className="table">
@@ -270,7 +352,7 @@ class Employees extends Component {
                         </div>
                     </div>
                     <div className="employees-right-form">
-                        <label className="employees-right-item" style={{display:this.state.employee_id}}>
+                        <label className="employees-right-item" style={{display:this.state.employee_id_label}}>
                             Employee ID:<br/>
                             <input type="text" name="employee_id" id="employee_id" value={this.state.employees.employee_id} style={{width:"100%"}} disabled="disabled" onChange={this.handleOnChange}/>
                         </label>
@@ -316,12 +398,11 @@ class Employees extends Component {
                                 </select>
                             </label>
                         </div>
-                        <button className="btn btn-outline-success" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.insertBtn}}>Add Employees</button>
-                        <button className="btn btn-outline-danger" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.updateBtn}}>Update Employees</button>
+                        <button className="btn btn-outline-success" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.insertBtn}}><i className="fa fa-plus"></i> Add Employee</button>
+                        <button className="btn btn-outline-warning" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.updateBtn}}><i className="fa fa-edit"></i> Update Employee</button>
+                        <button className="btn btn-outline-danger" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.deleteBtn}} onClick={this.deleteFlgEmployeeOnclick}><i className="fa fa-trash"></i> Delete Employee</button>
                     </div>
-                </form>
-
-
+                </form>                                
             </div>
         );
     }
@@ -343,6 +424,15 @@ export const mapDispatchToProp = dispatch =>{
         PostSignUp:( userSignUp) =>{
             dispatch(actPostSignUpEmployeesAPI(userSignUp));
         },
+        PostUpdateEmployee: userUpdate =>{
+            dispatch(actUpdateEmployeesAPI(userUpdate));
+        },
+        DeleteEmployee: employee_id =>{
+            dispatch(actDeleteEmployeeAPI(employee_id));
+        },
+        DeleteEmployeeFlg: deleteFlgEmployee =>{
+            dispatch(actDeleteEmployeeFlgAPI(deleteFlgEmployee))
+        }
     }
 }
 

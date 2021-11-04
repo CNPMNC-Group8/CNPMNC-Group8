@@ -75,9 +75,11 @@ Staff.create = function(data,file,result){
 
 }
 
-Staff.update = function(data,result){
+Staff.update = function(data,file,result){
     const query = "UPDATE STAFF SET FULL_NAME= ? , USER_NAME = ? , PASSWORD = ? , BIRTH_DAY = ? , EMAIL= ? , IMAGE = ? , POSITION = ? , ROLL= ?, DELETE_FLAG = ?  WHERE EMPLOYEE_ID = ? ";
-    console.log(data.image)
+    console.log("UPDATE FILE",file.filename)
+    console.log("UPDATE EMPLOYEE_id", data.employee_id)
+    console.log("update employee name", data.full_name)
     db.query(query,[data.full_name, data.user_name, data.password, data.birth_day, data.email, file.filename, data.position, data.roll, data.delete_flag,data.employee_id],function(err){
         if(err){
             result("Cập nhật không thành công :(");

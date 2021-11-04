@@ -111,6 +111,15 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
     background-color: #dddddd;
 }
 
+.admin-layout-right-container .employees-content .employees-left .employees-admin .table .table-selected-employee{
+    background-color: #dddddd;
+}
+
+
+/* .admin-layout-right-container .employees-content .employees-left .employees-admin .table tr:focus{
+    background-color: #dddddd;
+} */
+
 .admin-layout-right-container .employees-content .employees-left .employees-admin .employees-admin-action .employees-admin-action-i i{
     font-size: 20px;
     /* margin-top: 10px; */
@@ -164,6 +173,7 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
     font-size: 20px;
     color: #9A9A9A;
 }
+
 
 
 /* admin-layout-left */

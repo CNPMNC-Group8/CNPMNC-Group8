@@ -1,7 +1,7 @@
 /* Set up express  */
 
 var express = require('express');
-var path = require('path');
+// var path = require('path');
 var app = express();
 
 
@@ -26,6 +26,7 @@ app.use(cors());
 
 /* Router */
 require('./app/router/staff.router')(app);
+require('./app/router/task.router')(app);
 
 /* /Router */
 

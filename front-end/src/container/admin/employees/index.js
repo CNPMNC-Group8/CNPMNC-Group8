@@ -154,8 +154,7 @@ class Employees extends Component {
                                         employee_id_label:"none",
                                         insertBtn:"block",
                                         updateBtn:"none",
-                                        deleteBtn:"none"
-                                        
+                                        deleteBtn:"none"                                        
         })
 
     }
@@ -171,11 +170,32 @@ class Employees extends Component {
 
     }
 
+    deleteEmployeeBtn = () => {
+        if(this.state.employees.employee_id !== ""){
+            this.setState({
+                updateBtn:"none",
+                insertBtn:"none",
+                deleteBtn:"block" 
+            })
+        }
+    }
+
     deleteEmployeeOnClick = () =>{
         this.props.DeleteEmployee(this.state.employees.employee_id)
         setTimeout(()=>this.props.FetchListEmployees, 10)
         console.log("employee_id in deleteEmployeeOnClick",this.state.employees.employee_id)
-        
+        this.setState({
+            employees:{...this.state.employees, employee_id:""
+                                              , user_name:""
+                                              ,password:""
+                                              ,full_name:""
+                                              ,email:""
+                                              ,birth_day:""
+                                              ,position:""
+                                              ,roll:""
+                                              ,image:""
+                                        },                                     
+        })
     }
 
     deleteFlgEmployeeOnclick = event =>{
@@ -248,7 +268,6 @@ class Employees extends Component {
                             position_select:"none",
                             employee_id_label:"block",
                             insertBtn:"none",
-                            deleteBtn:"block"
                                                               
                         })
                         
@@ -292,7 +311,7 @@ class Employees extends Component {
             <div className="employees-content row" >
                 <div className="employees-left col-lg-8">
                     <div className="employees-admin" style={{backgroundColor:"#FFFFFF", borderRadius:"10px",padding:"0 20px"}}>
-                        <h3>List user Admin</h3>
+                        <h3 style={{paddingTop:"40px"}}>List user Admin</h3>
                         <div className="d-flex flex-row bd-highlight mb-3 employees-admin-action">
                             <div className="p-2 bd-highlight">
                             <label className="employees-admin-search" style={{marginBottom:"20px" }}>                               
@@ -303,11 +322,7 @@ class Employees extends Component {
                             <div className="p-2 bd-highlight employees-admin-action-i"><i className="fa fa-chevron-right"></i></div>
                             <div className="p-2 bd-highlight employees-admin-action-i" onClick={this.newFormOnClick}><i className="fa fa-plus"></i></div>
                             <div className="p-2 bd-highlight employees-admin-action-i" onClick={this.editFormOnClick}><i className="fa fa-edit"></i></div>
-                            <div className="p-2 bd-highlight employees-admin-action-i" onClick={this.deleteEmployeeOnClick}><i className="fa fa-trash"></i></div>
-                            <div className="p-2 bd-highlight employees-admin-action-i" >
-                                <i className="fa fa-wifi"></i>
-                            </div>
-                            
+                            <div className="p-2 bd-highlight employees-admin-action-i" onClick={this.deleteEmployeeBtn}><i className="fa fa-trash"></i></div>                            
                         </div>
 
                         <table className="table">
@@ -363,7 +378,7 @@ class Employees extends Component {
                             </label>
                             <label className="bd-highlight employees-right-item-seperate-2">
                                 Password:<br/>
-                                <input type="text" name="password" value={this.state.employees.password} style={{width:"100%"}} onChange={this.handleOnChange}/>
+                                <input type="password" name="password" value={this.state.employees.password} style={{width:"100%"}} onChange={this.handleOnChange}/>
                             </label>
                         </div>
                         <label className="employees-right-item">
@@ -400,7 +415,7 @@ class Employees extends Component {
                         </div>
                         <button className="btn btn-outline-success" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.insertBtn}}><i className="fa fa-plus"></i> Add Employee</button>
                         <button className="btn btn-outline-warning" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.updateBtn}}><i className="fa fa-edit"></i> Update Employee</button>
-                        <button className="btn btn-outline-danger" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.deleteBtn}} onClick={this.deleteFlgEmployeeOnclick}><i className="fa fa-trash"></i> Delete Employee</button>
+                        <button className="btn btn-outline-danger" type="submit" style={{width:"100%", marginTop:"10px", marginBottom:"20px", display:this.state.deleteBtn}} onClick={this.deleteEmployeeOnClick}><i className="fa fa-trash"></i> Delete Employee</button>
                     </div>
                 </form>                                
             </div>

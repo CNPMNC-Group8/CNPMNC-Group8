@@ -9,17 +9,22 @@ class Navbar extends Component {
         }
     }
 
-    componentDidMount(){
+    componentWillMount(){
         const {path}= this.props;
         if(path && path === "/admin/dashboard") {
             this.setState({title: "Dashboard"})
         }
-        else if("/admin/employees"){
+        else if(path && path === "/admin/tasks"){
+            this.setState({title: "Task"})
+        }
+        else if(path && path === "/admin/employees"){
             this.setState({title: "Employees"})
         }
+
         else{
             this.setState({title: "Title"})
         }
+        console.log("tilte", this.state.title)
     }
 
     render() {

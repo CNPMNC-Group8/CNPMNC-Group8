@@ -24,7 +24,7 @@ class Sidebar extends Component {
                         
                     </div>
                     <div className="side-bar-item">
-                        <NavLink to="/task" className="d-flex flex-row bd-highlight mb-3" activeClassName="main-nav-active">
+                        <NavLink to="/admin/tasks" className="d-flex flex-row bd-highlight mb-3" activeClassName="main-nav-active">
                             <div className="bd-highlight">
                                 <i className="fa fa-tasks"></i>
                             </div>

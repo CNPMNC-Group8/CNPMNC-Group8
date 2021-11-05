@@ -7,7 +7,8 @@ import "./index.css"
 
 
 function AdminLayout(props){
-    const path = props.children.props.location.pathname;;
+    const path = props.children.props.location.pathname
+    console.log("path", path)
     console.log("props.children.props",props.children)
     return(
         <div className="row admin-layout-container" style={{margin: "0px"}}>

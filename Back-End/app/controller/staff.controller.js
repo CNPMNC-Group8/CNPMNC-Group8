@@ -18,6 +18,7 @@ exports.insert_employee = function(req,res){
     let data = req.body;
     let file = req.file;
     console.log("file",req.file);
+    console.log("staff", data)
     Staff.create(data,file,function(response){
         res.send({result:response});
     })
@@ -30,8 +31,6 @@ exports.update_employee = function(req,res){
     Staff.update(data,file,function(response){
         res.send({result:response});
     })
-
-
 }
 
 exports.delete_employee = function(req,res){

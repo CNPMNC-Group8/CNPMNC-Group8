@@ -51,7 +51,7 @@ Staff.detail = function(employee_id,result) {
                 item.image = `http://localhost:9999/get-image/${item.IMAGE}`
             })
             // console.log("staff",staff)
-            result(staff)
+            // result(staff)
             result(staff[0]);
         }
     })
@@ -94,10 +94,10 @@ Staff.delete = function(employee_id,result){
     const query = "DELETE FROM STAFF WHERE EMPLOYEE_ID = ?"
     db.query(query,employee_id,function(err){
         if(err){
-            result("xóa nhân viên không thành công :)");
+            result("Xóa nhân viên không thành công :)");
         }
         else{
-            result("xóa nhân viên thành công :)");
+            result("Xóa nhân viên thành công :)");
         }
     })
 }

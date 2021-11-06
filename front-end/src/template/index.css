@@ -174,7 +174,54 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
     color: #9A9A9A;
 }
 
+/* task admin */
+.admin-layout-right-container .task-admin-action .task-admin-search{
+    border-bottom: 1px solid  #333333;
+    padding-top: 10px;
+    width:330px;
+    background-color: rgba(0,0,0,.05);
+}
 
+.admin-layout-right-container .task-admin-action .task-admin-search i{
+    font-size: 20px;
+    color: #9A9A9A;
+}
+
+.admin-layout-right-container .task-admin-action .task-admin-search input{
+    background-color: transparent;
+    border: none;
+    color: #9A9A9A;
+    width:300px;
+    padding-bottom:10px;
+    padding-left: 10px;
+}
+
+.admin-layout-right-container .task-admin-action .task-admin-search input:focus-visible{
+    outline:none !important;
+}
+
+.admin-layout-right-container .task-admin-action .task-admin-search input::-webkit-input-placeholder{
+    font-size: 20px;
+    color: #9A9A9A;
+}
+
+.admin-layout-right-container  .task-admin-action .task-admin-action-i i{
+    font-size: 20px;
+    /* margin-top: 10px; */
+    margin-right: 15px;
+    line-height: 30px;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    padding:10px 15px;
+    cursor: pointer;
+}
+
+.admin-layout-right-container .task-admin-action .task-admin-action-i i:hover{
+    background-color: #9A9A9A;
+}
+
+/* /task admin */
 
 /* admin-layout-left */
 
@@ -323,6 +370,44 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
 }
 
 
+/* task model */
+.task-modal .task-modal-content label{
+    color: #a4a4a4;
+    font-weight: 700;
+    font-size: 13px;
+    margin-right: 20px;
+}
+
+.task-modal-body-right .task-modal-body-right-item i{
+    font-size: 25px;
+}
+
+.task-modal-body-right .task-modal-body-right-item .task-modal-body-right-item-text{
+    text-align: left;
+}
+
+.task-modal-body-right .task-modal-body-right-item .task-modal-body-right-item-text i{
+    font-size:13px;
+    margin-right: 10px;
+}
+
+.task-modal-body-right .task-modal-body-right-item .task-modal-body-right-item-text span{
+    font-size: 15px;
+    color: #a1a1a1;
+    margin-bottom: 0px !important;
+    font-weight: 400 !important;
+}
+
+/* /task model */
+
+
 
 
 /* admin-layout-right */
+
+
+@media (min-width: 576px){
+    .modal-dialog{
+        max-width:1000px !important;
+    } 
+}

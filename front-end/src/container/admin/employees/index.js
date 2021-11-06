@@ -328,13 +328,13 @@ class Employees extends Component {
                         <table className="table">
                             <thead>
                                 <tr>                                
-                                <th scope="col">USERNAME</th>
-                                <th scope="col">PASSWORD</th>
-                                <th scope="col">FULL NAME</th>
-                                <th scope="col">EMAIL</th>
-                                <th scope="col">BIRTH DAY</th>
-                                <th scope="col">POSITION</th>
-                                <th scope="col">ROLL</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Password</th>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Birth Day</th>
+                                <th scope="col">Position</th>
+                                <th scope="col">Roll</th>
                                 </tr>
                             </thead>
                             <tbody>

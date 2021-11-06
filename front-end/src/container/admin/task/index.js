@@ -68,7 +68,7 @@ class Task extends Component {
                                     </label>
                                     <label className="bd-highligh task-right-item-seperate-3">
                                         DUE DATE:<br/>
-                                        <input type="date" name="birth_day" id="birth_day" style={{width:"200px", height:"30px", fontSize:"16px" }} />
+                                        <input type="date" name="due_date" id="due_date" style={{width:"200px", height:"30px", fontSize:"16px" }} />
                                     </label>
                                     </div>
                                     {/* body */}
@@ -85,11 +85,11 @@ class Task extends Component {
                                                 <input type="file" name="file" id="file" placeholder="Write a title" style={{width:"100%", display:"none"}} />
                                             </label>
                                         </div>
-                                        <div className="task-modal-body-right col-lg-4 container">
-                                            <div className="task-modal-body-right-item d-flex" style={{backgroundColor:"#0097CC", width:"100%"}}>                                               
+                                        <div className="task-modal-body-right col-lg-4" style={{height:"642px",overflow:"auto", paddingLeft:"0px", paddingRight:"0px"}}>
+                                            <div className="task-modal-body-right-item d-flex" style={{backgroundColor:"#0097CC", width:"100%", fontWeight:"700", color:"#FFFFFF"}}>                                               
                                                 <div className="w-45 bd-highlight" style={{textAlign:"center", width:"49%", padding:"8px 0px"}}>Phase</div>
                                                 <div className="task-model-line w-10" style = {{height:"40px", width:"1px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD"}}></div>
-                                                <div className="w-45" style={{textAlign:"center",  width:"49%", padding:"8px 0px"}}>PIC</div>
+                                                <div className="w-45" style={{textAlign:"center",  width:"49%", padding:"8px 0px", fontWeight:"700", color:"#FFFFFF"}}>PIC</div>
                                             </div>
                                             <div className="task-modal-body-right-item d-flex" style={{ width:"100%", position:"relative" }}>                                               
                                                 <div className="w-45 bd-highlight" style={{textAlign:"center",  width:"49%"}}>
@@ -105,7 +105,7 @@ class Task extends Component {
                                                     </p>
                                                 </div>
                                                 <div className="task-model-line w-10" style = {{height:"170px", width:"1px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD"}}></div>
-                                                <div className="task-model-line w-10" style = {{height:"2px", width:"35px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"156px"}}></div>                                                
+                                                <div className="task-model-line w-10" style = {{height:"2px", width:"38px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"161px"}}></div>                                                
                                                 <div className="w-45" style={{textAlign:"center",  width:"49%", marginTop:"10px", position:"relative"}}>
                                                     <img src={register} name="register" alt="register" style={{width:"80px", height:"80px", borderRadius:"50%"}} />
                                                     <select name="roll" id="register" style={{width:"96%", marginTop:"10px", marginLeft:"6px"}}  >
@@ -128,7 +128,7 @@ class Task extends Component {
                                                     </p>
                                                 </div>
                                                 <div className="task-model-line w-10" style = {{height:"170px", width:"1px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD"}}></div>
-                                                <div className="task-model-line w-10" style = {{height:"2px", width:"35px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"156px"}}></div>                                                
+                                                <div className="task-model-line w-10" style = {{height:"2px", width:"38px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"161px"}}></div>                                                
                                                 <div className="w-45" style={{textAlign:"center",  width:"49%", marginTop:"10px", position:"relative"}}>
                                                     <img src={register} name="register" alt="register" style={{width:"80px", height:"80px", borderRadius:"50%"}} />
                                                     <select name="roll" id="register" style={{width:"96%", marginTop:"10px", marginLeft:"6px"}}  >
@@ -151,7 +151,7 @@ class Task extends Component {
                                                     </p>
                                                 </div>
                                                 <div className="task-model-line w-10" style = {{height:"170px", width:"1px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD"}}></div>
-                                                <div className="task-model-line w-10" style = {{height:"2px", width:"35px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"156px"}}></div>                                                
+                                                <div className="task-model-line w-10" style = {{height:"2px", width:"38px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"161px"}}></div>                                                
                                                 <div className="w-45" style={{textAlign:"center",  width:"49%", marginTop:"10px", position:"relative"}}>
                                                     <img src={register} name="register" alt="register" style={{width:"80px", height:"80px", borderRadius:"50%"}} />
                                                     <select name="roll" id="register" style={{width:"96%", marginTop:"10px", marginLeft:"6px"}}  >
@@ -174,7 +174,7 @@ class Task extends Component {
                                                     </p>
                                                 </div>
                                                 <div className="task-model-line w-10" style = {{height:"170px", width:"1px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD"}}></div>
-                                                <div className="task-model-line w-10" style = {{height:"2px", width:"35px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"156px"}}></div>                                                
+                                                <div className="task-model-line w-10" style = {{height:"2px", width:"38px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"161px"}}></div>                                                
                                                 <div className="w-45" style={{textAlign:"center",  width:"49%", marginTop:"10px", position:"relative"}}>
                                                     <img src={register} name="register" alt="register" style={{width:"80px", height:"80px", borderRadius:"50%"}} />
                                                     <select name="roll" id="register" style={{width:"96%", marginTop:"10px", marginLeft:"6px"}}  >
@@ -197,7 +197,7 @@ class Task extends Component {
                                                     </p>
                                                 </div>
                                                 <div className="task-model-line w-10" style = {{height:"170px", width:"1px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD"}}></div>
-                                                <div className="task-model-line w-10" style = {{height:"2px", width:"35px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"156px"}}></div>                                                
+                                                <div className="task-model-line w-10" style = {{height:"2px", width:"38px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"161px"}}></div>                                                
                                                 <div className="w-45" style={{textAlign:"center",  width:"49%", marginTop:"10px", position:"relative"}}>
                                                     <img src={register} name="register" alt="register" style={{width:"80px", height:"80px", borderRadius:"50%"}} />
                                                     <select name="roll" id="register" style={{width:"96%", marginTop:"10px", marginLeft:"6px"}}  >
@@ -220,7 +220,7 @@ class Task extends Component {
                                                     </p>
                                                 </div>
                                                 <div className="task-model-line w-10" style = {{height:"170px", width:"1px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD"}}></div>
-                                                <div className="task-model-line w-10" style = {{height:"2px", width:"35px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"156px"}}></div>                                                
+                                                <div className="task-model-line w-10" style = {{height:"2px", width:"38px",padding:"1px" , border:"2px solid #DDDDDD", backgroundColor:"#DDDDDD", position:"absolute", top:"50px", left:"161px"}}></div>                                                
                                                 <div className="w-45" style={{textAlign:"center",  width:"49%", marginTop:"10px", position:"relative"}}>
                                                     <img src={register} name="register" alt="register" style={{width:"80px", height:"80px", borderRadius:"50%"}} />
                                                     <select name="roll" id="register" style={{width:"96%", marginTop:"10px", marginLeft:"6px"}}  >

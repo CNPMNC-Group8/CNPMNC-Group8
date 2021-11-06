@@ -379,7 +379,7 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
 }
 
 .task-modal-body-right .task-modal-body-right-item i{
-    font-size: 25px;
+    font-size: 30px;
 }
 
 .task-modal-body-right .task-modal-body-right-item .task-modal-body-right-item-text{
@@ -396,10 +396,45 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
     color: #a1a1a1;
     margin-bottom: 0px !important;
     font-weight: 400 !important;
+    margin-left: 10px;
 }
 
+.task-modal-body-right .task-modal-body-right-item img{
+    border: 4px solid #0097CC;
+}
+
+.task-modal-body-right{
+    border: 2px solid #DDDDDD;
+}
+
+.task-modal-body-right::-webkit-scrollbar{
+    width: 10px;
+}
+
+.task-modal-body-right::-webkit-scrollbar-track{
+    background: #f1f1f1; 
+}
+
+.task-modal-body-right::-webkit-scrollbar-thumb{
+    background: #888; 
+}
+
+.task-modal-body-right::-webkit-scrollbar-thumb:hover{
+    background: #555; 
+}
 /* /task model */
 
+.home-page video{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: -1;
+    
+}
+/* Home Page */
+
+/* /Home Page */
 
 
 

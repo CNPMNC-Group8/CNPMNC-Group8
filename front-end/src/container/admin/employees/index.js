@@ -164,7 +164,11 @@ class Employees extends Component {
             this.setState({
                 updateBtn:"block",
                 insertBtn:"none",
-                deleteBtn:"none" 
+                deleteBtn:"none",
+                roll_input:"none",
+                position_input:"none",
+                roll_select:"block",
+                position_select:"block",
             })
         }
 

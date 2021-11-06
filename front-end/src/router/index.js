@@ -1,8 +1,15 @@
+import HomePage from "../container/home/home-page"
 import Dashboard from "../container/admin/dashboard"
 import Employees from "../container/admin/employees"
 import Task from "../container/admin/task"
 
-
+const routerHome = [
+    {
+        path:"/",
+        exact:true,
+        Component:HomePage
+    }
+]
 
 const routerAdmin = [
     {
@@ -22,4 +29,4 @@ const routerAdmin = [
     }
 ]
 
-export {routerAdmin}
+export {routerHome,routerAdmin}

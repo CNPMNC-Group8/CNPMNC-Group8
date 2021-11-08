@@ -7,6 +7,12 @@ exports.get_list_employee = function(req,res){
     })
 }
 
+exports.get_list_employee_name_image = function(req,res){
+    Staff.list_name_image(function(response){
+        res.send({result:response})
+    })
+}
+
 exports.details_employee = function(req,res){
     let employee_id = req.params.employee_id;
     Staff.detail(employee_id,function(response){

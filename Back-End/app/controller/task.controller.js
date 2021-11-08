@@ -17,8 +17,10 @@ exports.details_task = function(req,res){
 
 exports.insert_task = function(req,res){
     let data = req.body
+    let file = req.file
     console.log("task", req.body)
-    Task.create(data, function(response){
+    console.log("file",req.file)
+    Task.create(data,file,function(response){
         res.send({result:response})
     })
 }

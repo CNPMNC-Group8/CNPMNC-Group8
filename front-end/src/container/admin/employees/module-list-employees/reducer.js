@@ -8,7 +8,7 @@ import
 let initialState = {
     listEmployees: [],
     listEmployeesLoading:false,
-    listEmployeespErr :null
+    listEmployeesErr :null
 }
 
 const listEmployeesReducer = (state = initialState, action )=>{
@@ -17,7 +17,7 @@ const listEmployeesReducer = (state = initialState, action )=>{
         case FETCH_LIST_EMPLOYEES_REQUEST:{
             state.listEmployees = [];
             state.listEmployeesLoading = true;
-            state.listEmployeespErr = null;
+            state.listEmployeesErr = null;
 
             return {...state}
         }
@@ -25,7 +25,7 @@ const listEmployeesReducer = (state = initialState, action )=>{
         case FETCH_LIST_EMPLOYEES_SUCCESS:{
             state.listEmployees = action.data;
             state.listEmployeesLoading = false;
-            state.listEmployeespErr = null;
+            state.listEmployeesErr = null;
 
             return {...state}
         }
@@ -33,7 +33,7 @@ const listEmployeesReducer = (state = initialState, action )=>{
         case FETCH_LIST_EMPLOYEES_FALIED:{
             state.listEmployees = [];
             state.listEmployeesLoading = false;
-            state.listEmployeespErr = action.err;
+            state.listEmployeesErr = action.err;
             
             return {...state}
         }

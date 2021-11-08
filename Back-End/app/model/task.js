@@ -12,11 +12,37 @@ const Task = function(task){
     this.register_user = task.register_user;
     this.start_date = task.start_date;
     this.end_date = task.end_date;
-    this.effort = task.effort
+    this.effort = task.effort;
+    this.important = task.important;
+    this.description = task.description;
+    this.file = task.file;
+    this.confirmation = task.confirmation;
+    this.implementation =  task.implementation;
+    this.test = task.test;
+    this.approval = task.approval;
+    this.finish = task.finish;
+    this.step = task.step;
 }
 
 Task.list = function(result) {
-    const query = "SELECT * FROM TASK";
+    const query = `
+    WITH REGISTER_T AS(
+        SELECT B.FULL_NAME AS REGISTER_USER_NAME, A.TASK_ID
+        FROM TASK A, STAFF B
+        WHERE A.REGISTER_USER = B.EMPLOYEE_ID
+    ),
+    ASSIGNEE_T AS
+    (
+        SELECT B.FULL_NAME AS ASSIGNEE_NAME, A.TASK_ID
+        FROM TASK A, STAFF B
+        WHERE A.ASSIGNEE = B.EMPLOYEE_ID
+    )
+    
+    SELECT A.TASK_ID, A.JOB,A.STATUS,A.CATEGORY,A.TITLE,A.PROGRESS,A.ASSIGNEE,A.REGISTER_USER,A.START_DATE,A.END_DATE, A.EFFORT, B.REGISTER_USER_NAME, C.ASSIGNEE_NAME
+    FROM TASK A, REGISTER_T B, ASSIGNEE_T C
+    WHERE A.TASK_ID = B.TASK_ID
+    AND A.TASK_ID = C.TASK_ID
+    `;
     db.query(query, function(err, task){
         if(err){
             result("Lấy danh sách Task không thành công :(");
@@ -50,16 +76,28 @@ Task.detail = function(task_id, result) {
 }
 
 
-Task.create = function(data,result){
-    const query = "INSERT INTO TASK (JOB,STATUS,CATEGORY,TITLE,PROGRESS,ASSIGNEE,REGISTER_USER,START_DATE,END_DATE,EFFORT) VALUES(?,?,?,?,?,?,?,?,?,?)"
-    db.query(query,[data.job,data.status,data.category,data.title,data.progress,data.assignee,data.register_user,data.start_date,data.end_date,data.effort],function(err){
-        if(err){
-            result("Thêm task thất bại :( ")
-        }
-        else{
-            result("Thêm task thành công :)")
-        }
-    })
+Task.create = function(data,file,result){
+    const query = "INSERT INTO TASK (JOB,STATUS,CATEGORY,TITLE,PROGRESS,ASSIGNEE,REGISTER_USER,START_DATE,END_DATE,EFFORT,IMPORTANT,DESCRIPTION,FILE,CONFIRMATION,IMPLEMENTATION,TEST,APPROVAL,FINISH,STEP) VALUES(?,?,?,?,?,?,?,DATE_FORMAT(SYSDATE(), '%Y-%m-%d'),?,?,?,?,?,?,?,?,?,?,?)"
+    if(file && file !== undefined){
+        db.query(query,[data.job,data.status,data.category,data.title,data.progress,data.assignee,data.register_user,data.end_date,data.effort,data.important,data.description,file.filename,data.confirmation,data.implementation,data.test,data.approval,data.finish,data.step],function(err){
+            if(err){
+                result("Thêm task thất bại :( ")
+            }
+            else{
+                result("Thêm task thành công :)")
+            }
+        })
+    }
+    else{
+        db.query(query,[data.job,data.status,data.category,data.title,data.progress,data.assignee,data.register_user,data.end_date,data.effort,data.important,data.description,data.file,data.confirmation,data.implementation,data.test,data.approval,data.finish,data.step],function(err){
+            if(err){
+                result("Thêm task thất bại :( ")
+            }
+            else{
+                result("Thêm task thành công :)")
+            }
+        })
+    }
 }
 
 Task.update = function(data,result){

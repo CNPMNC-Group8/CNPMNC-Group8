@@ -20,6 +20,7 @@ module.exports = function(router) {
     var staffController = require('../controller/staff.controller')
 
     router.get('/api/staff/list',staffController.get_list_employee);
+    router.get('/api/staff/list-name-image',staffController.get_list_employee_name_image);
     router.get('/api/staff/detail/:employee_id', staffController.details_employee);
     router.post('/api/staff/insert' , upload.single('image'),staffController.insert_employee);
     router.put('/api/staff/update',upload.single('image') ,staffController.update_employee);

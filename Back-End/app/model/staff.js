@@ -39,6 +39,24 @@ Staff.list = function(result) {
     });
 }
 
+Staff.list_name_image = function(result) {
+    const query = "SELECT FULL_NAME,IMAGE AS IMAGE_URL, EMPLOYEE_ID,IMAGE FROM STAFF";
+    db.query(query, function(err, staff){
+        if(err){
+            result("Lấy danh sách Staff không thành công :(");
+        }
+        else{
+            staff.map(item =>{
+                // console.log("image",item.IMAGE)
+                item.IMAGE_URL = `http://localhost:9999/get-image/${item.IMAGE}`;
+                // console.log(item.IMAGE)
+            })
+            // console.log("staff",staff)
+            result(staff)
+        }
+    });
+}
+
 Staff.detail = function(employee_id,result) {
     const query = "SELECT * FROM STAFF WHERE EMPLOYEE_ID = ?";
     db.query(query,employee_id,function(err, staff){
@@ -48,7 +66,7 @@ Staff.detail = function(employee_id,result) {
         else{
             staff.map(item =>{
                 // console.log("image",item.IMAGE)
-                item.image = `http://localhost:9999/get-image/${item.IMAGE}`
+                item.IMAGE = `http://localhost:9999/get-image/${item.IMAGE}`
             })
             // console.log("staff",staff)
             // result(staff)

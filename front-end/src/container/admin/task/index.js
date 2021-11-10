@@ -30,9 +30,9 @@ class Task extends Component {
                 test:"",
                 approval:"",
                 finish:"",
-                step:"",
-                filter_array:"",
+                step:"",             
             },
+            filter_array:"",
             nameFile:"Attachment",
             imgEmployeesSelectRegister:register,
             imgEmployeesSelectConfirmation:register,
@@ -50,6 +50,12 @@ class Task extends Component {
     componentDidMount(){
         this.props.FetchListEmployeesSlect()
         this.props.FetchListTask()
+    }
+
+    handleOnFilterArray = event =>{
+        this.setState({
+            filter_array:event.target.value 
+        })
     }
 
     handleOnChange = event => {
@@ -174,22 +180,53 @@ class Task extends Component {
         console.log("renderHTMLAdmin",listTask)
         
         if(listTask.result && listTask.result.length > 0){
-            // const listFilterEmployees = listTask.result.filter(item => {
-            //     if(this.state.filter_array === ""){
-            //         return listTask.result
-            //     }
-            // })
-            console.log("listFilterEmployees", listTask)
-            // console.log("listEmployeesAdmin",listEmployees.result.filter(item => item.ROLL === "ADMIN"))
-            return listTask.result.map((item, index)=>{
+            const listFilterTask = listTask.result.filter(item => {
+                if(this.state.filter_array === ""){
+                    return listTask.result
+                }
+                else if(item.TASK_ID.toString().includes(this.state.filter_array.toLowerCase())){                   
+                    return listTask.result
+                }
+                else if(item.JOB.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listTask.result
+                }
+                else if(item.CATEGORY.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listTask.result
+                }
+                else if(item.TITLE.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listTask.result
+                }
+                else if(item.PROGRESS.toString().toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listTask.result
+                }
+                else if(item.REGISTER_USER_NAME.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listTask.result
+                }
+                else if(item.ASSIGNEE_NAME.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listTask.result
+                }
+                else if(item.START_DATE.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listTask.result
+                }
+                else if(item.END_DATE.toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listTask.result
+                }
+                else if(item.EFFORT.toString().toLowerCase().includes(this.state.filter_array.toLowerCase())){                   
+                    return listTask.result
+                }
+            })
+            return listFilterTask.map((item, index)=>{
                 return(
-                    <tr className="" style={{cursor:"pointer"}} key={index} id ={item.TASK_ID}>
+                    <tr className="" style={{cursor:"pointer"}} style={{ WebkitUserSelect:"none", khtmlUserSelect:"none", mozuserSelect:"none",OuserSelect:"none",userSelect:"none" }} key={index} id ={item.TASK_ID} 
+                    onDoubleClick={()=>{
+                        console.log("task", item)
+                    }}>
                         <th scope="row">{item.TASK_ID}</th>
                         <td>{item.JOB}</td>
                         <td>{item.STATUS}</td>
                         <td>{item.CATEGORY}</td>
                         <td>{item.TITLE}</td>
-                        <td>{item.PROGRESS}</td>
+                        <td>{item.PROGRESS + "%"}</td>
                         <td>{item.REGISTER_USER_NAME}</td>
                         <td>{item.ASSIGNEE_NAME}</td>
                         <td>{item.START_DATE}</td>
@@ -210,7 +247,7 @@ class Task extends Component {
                         <div className="d-flex flex-row bd-highlight mb-3 task-admin-action">
                             <div className="p-2 bd-highlight">
                                 <label className="task-admin-search" style={{marginBottom:"20px" }}>                               
-                                    <input type="text" name="filter_array" placeholder="Search"  /><i className="fa fa-search"></i>
+                                    <input type="text" name="filter_array" placeholder="Search"  onChange={this.handleOnFilterArray} /><i className="fa fa-search"></i>
                                 </label>
                             </div>
                             <div className="p-2 bd-highlight task-admin-action-i" style={{marginLeft:"20px"}}><i className="fa fa-chevron-left"></i></div>

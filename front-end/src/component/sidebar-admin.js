@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from "./images/KFCLogo.png";
+import logo from "./images/Logo.png";
 import {Link, NavLink} from 'react-router-dom';
 
 
@@ -11,7 +11,6 @@ class Sidebar extends Component {
                     <div className="bd-highlight">
                        <img src={logo} width="60" height="60" alt="admin"/>
                     </div>
-                    <div className="bd-highlight"><h2>KFC TEAM</h2></div>
                 </Link>
                 <div className="side-bar-content container">
                     <div className="side-bar-item">

@@ -1,7 +1,8 @@
-import { BrowserRouter, Switch} from "react-router-dom";
+import { BrowserRouter, Switch, Route} from "react-router-dom";
 import {routerHome,routerAdmin} from './router';
 import AdminTemplate from './template/admin.layout';
 import HomeTemplate from'./template/home.layout';
+import DetailTask from './container/admin/task/detail-task'
 
 
 
@@ -29,6 +30,7 @@ function App() {
         <Switch>
           {showMeuAdmin(routerAdmin)}
           {showMeuHome(routerHome)}
+          <Route path="/admin/task/detail-task" component={DetailTask} />
         </Switch>
       </BrowserRouter>
 

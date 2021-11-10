@@ -15,7 +15,7 @@ function AdminLayout(props){
             <div className="col-md-2 admin-layout-left" >
                 <Sidebar />
             </div>
-            <div className="col-md-10 admin-layout-right container" >
+            <div className="col-md-10 admin-layout-right container" style={{overflow: "hidden"}}>
                 <Navbar path= {path}/>
                 <div className="admin-layout-right-container">
                     {props.children}

@@ -9,6 +9,9 @@ import insertTaskReducer from '../container/admin/task/module-insert-task/reduce
 import listEmployeesSelectReducer from '../container/admin/task/module-list-employees-select/reducer'
 import listTaskReducer from '../container/admin/task/module-list-tasks/reducer'
 
+import detailTaskReducer from '../container/admin/task/detail-task/module-detail-task/reducer'
+import userSignUpReducer from '../container/home/home-page/module-sign-in/reducer'
+
 const rootReducer = combineReducers({
     userSignUpEmployeesReducer,
     listEmployeesReducer,
@@ -18,6 +21,11 @@ const rootReducer = combineReducers({
     
     insertTaskReducer,
     listEmployeesSelectReducer,
-    listTaskReducer
+    listTaskReducer,
+
+
+    detailTaskReducer,
+
+    userSignUpReducer
 });
 export default rootReducer

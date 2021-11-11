@@ -30,7 +30,7 @@ function App() {
         <Switch>
           {showMeuAdmin(routerAdmin)}
           {showMeuHome(routerHome)}
-          <Route path="/admin/task/detail-task" component={DetailTask} />
+          <Route path="/admin/task/detail-task/:task_id" component={DetailTask} />
         </Switch>
       </BrowserRouter>
 

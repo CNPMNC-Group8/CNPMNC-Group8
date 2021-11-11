@@ -107,6 +107,18 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
     overflow: auto !important;
 }
 
+.task-admin .table tr th a{
+    color: #8c8c8c !important;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+.task-admin .table tr td a{
+    color: #8c8c8c !important;
+    text-decoration: none;
+}
+
 .admin-layout-right-container .employees-content .employees-left .employees-admin .table tr:hover, .task-admin .table tr:hover{
     background-color: #dddddd;
 }
@@ -137,6 +149,14 @@ body h1,h2,h3,h4,h5,h6,p,span,a{
 }
 
 .admin-layout-right-container .employees-left .employees-admin h3{
+    text-align: center;
+    color: #333333;
+    font-weight: 500;
+    font-size: 22px;
+    padding-bottom: 20px;
+}
+
+.task-admin .employees-admin h3{
     text-align: center;
     color: #333333;
     font-weight: 500;

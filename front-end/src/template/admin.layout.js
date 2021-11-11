@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route  } from "react-router-dom";
+import { Route   , Redirect} from "react-router-dom";
 import Sidebar from "../component/sidebar-admin"
 import Navbar from "../component/navbar-admin"
 import "./index.css"
@@ -30,13 +30,30 @@ export default function AdminTemplate({Component,...props}){
         <Route {...props}
             render = {(propsComponent)=>{
                 console.log("propsComponent from admin.layout",propsComponent);
-                return(
-                    <AdminLayout>
-                        <Component {...propsComponent} />
-                    </AdminLayout>           
-                )
-                
+                if(localStorage.getItem("accessToken")){
+                    return(
+                        <AdminLayout>
+                            <Component {...propsComponent} />
+                        </AdminLayout>           
+                    )
+                }
+
+                return <Redirect to="/" />
             }}
         />
+    //     <Route {...props}
+    //     render={(propsComponent) => {
+    //         if(localStorage.getItem("accessToken")){
+    //             return(
+    //                 <AdminLayout >
+    //                     <Component {...propsComponent} />
+    //                 </AdminLayout>
+    //             )
+    //         }
+    //         return <Redirect to="/" />
+    //     }}
+           
+    // />
     )
 }
+

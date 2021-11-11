@@ -12,6 +12,10 @@ import listTaskReducer from '../container/admin/task/module-list-tasks/reducer'
 import detailTaskReducer from '../container/admin/task/detail-task/module-detail-task/reducer'
 import userSignUpReducer from '../container/home/home-page/module-sign-in/reducer'
 
+
+import listCountEmployeesReducer from '../container/admin/dashboard/module-count-employees-phase/reducer'
+import listCountCategoryReducer from '../container/admin/dashboard/module-count-category/reducer'
+
 const rootReducer = combineReducers({
     userSignUpEmployeesReducer,
     listEmployeesReducer,
@@ -26,6 +30,10 @@ const rootReducer = combineReducers({
 
     detailTaskReducer,
 
-    userSignUpReducer
+    userSignUpReducer,
+
+
+    listCountEmployeesReducer,
+    listCountCategoryReducer
 });
 export default rootReducer

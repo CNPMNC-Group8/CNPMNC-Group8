@@ -24,6 +24,11 @@ module.exports = function(router){
     router.delete('/api/task/delete/:task_id',taskController.delete_task)
 
 
+    router.get('/api/task/count/category', taskController.count_task_category)
+
+    router.get('/api/task/count/employee-phase', taskController.count_employees_phase)
+
+
     router.get('/get-file/:file',(req, res) => {
         const r = fs.createReadStream(`./file/${req.params.file}`) // or any other way to get a readable stream
         const ps = new stream.PassThrough() // <---- this makes a trick with stream error handling

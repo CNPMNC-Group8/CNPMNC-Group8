@@ -9,6 +9,11 @@ class Navbar extends Component {
         }
     }
 
+    logOut = () =>{
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("user");
+    }
+
     componentWillMount(){
         const {path}= this.props;
         if(path && path === "/admin/dashboard") {
@@ -28,6 +33,8 @@ class Navbar extends Component {
     }
 
     render() {
+        const full_name = localStorage.getItem("user")
+        const full_name_split = full_name.split('"')[1]
         return (
             <div className="navbar">
                 <div className="navbar-content">
@@ -36,10 +43,10 @@ class Navbar extends Component {
                     </div>
                     <div className="navbar-right">
                         <div className="navbar-right-item">
-                            <Link to="#">Account</Link>
+                            <Link to="#">{full_name_split}</Link>
                         </div>
                         <div className="navbar-right-item">
-                            <Link to="#">Log out</Link>
+                            <Link to="/" onClick={this.logOut}>Log out</Link>
                         </div>
                     </div>
                 </div>

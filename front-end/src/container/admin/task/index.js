@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-import { connect } from 'react-redux';
+
 import register from "./img/hoang2.JPG"
 
 import {actPostTaskAPI} from "./module-insert-task/action"
 import {actFetchListEmployeesSelectAPI} from "./module-list-employees-select/action"
 import {actFetchListTaskAPI} from "./module-list-tasks/action"
+
+import { connect } from 'react-redux';
 
 class Task extends Component {
     constructor(props) {
@@ -240,7 +242,7 @@ class Task extends Component {
     render() {
         return (
             <div>
-                <div className="task-admin" style={{backgroundColor:"#FFFFFF", borderRadius:"10px",padding:"0 20px"}}>
+                <div className="task-admin" style={{backgroundColor:"#FFFFFF", borderRadius:"10px",padding:"0 20px", height:"85vh",overflow:"auto"}}>
                         <h3 style={{paddingTop:"40px"}}>List task</h3>
                         <div className="d-flex flex-row bd-highlight mb-3 task-admin-action">
                             <div className="p-2 bd-highlight">

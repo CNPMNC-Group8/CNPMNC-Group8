@@ -75,7 +75,7 @@ Task.detail = function(task_id, result) {
         AND A.TASK_ID = ?
     ),
     IMPLEMENTATION_T AS(
-        SELECT  A.IMPLEMENTATION ,B.IMAGE AS IMAGE_CONFIRMATION , B.FULL_NAME AS FULL_NAME_IMPLEMENTATION FROM TASK A, staff B
+        SELECT  A.IMPLEMENTATION ,B.IMAGE AS IMAGE_IMPLEMENTATION , B.FULL_NAME AS FULL_NAME_IMPLEMENTATION FROM TASK A, staff B
         WHERE A.IMPLEMENTATION = B.EMPLOYEE_ID
         AND A.TASK_ID = ?
     ),
@@ -113,7 +113,13 @@ Task.detail = function(task_id, result) {
                 item.START_DATE = moment(item.START_DATE).format("DD/MM/YYYY")
                 item.END_DATE = moment(item.END_DATE).format("DD/MM/YYYY")
                 item.FILE = `http://localhost:9999/get-file/${item.FILE}`
-            })
+                item.IMAGE_REGISTER = `http://localhost:9999/get-image/${item.IMAGE_REGISTER}`
+                item.IMAGE_CONFIRMATION = `http://localhost:9999/get-image/${item.IMAGE_CONFIRMATION}`
+                item.IMAGE_ASSIGNEE = `http://localhost:9999/get-image/${item.IMAGE_ASSIGNEE}`
+                item.IMAGE_IMPLEMENTATION = `http://localhost:9999/get-image/${item.IMAGE_IMPLEMENTATION}`
+                item.IMAGE_TEST = `http://localhost:9999/get-image/${item.IMAGE_TEST}`
+                item.IMAGE_APPROVAL = `http://localhost:9999/get-image/${item.IMAGE_APPROVAL}`
+                item.IMAGE_FINISH = `http://localhost:9999/get-image/${item.IMAGE_FINISH}`            })
             // result(task)
             result(task[0]);
         }

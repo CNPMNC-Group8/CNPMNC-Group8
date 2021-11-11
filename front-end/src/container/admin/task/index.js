@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import register from "./img/hoang2.JPG"
 
@@ -217,21 +218,18 @@ class Task extends Component {
             })
             return listFilterTask.map((item, index)=>{
                 return(
-                    <tr className="" style={{cursor:"pointer"}} style={{ WebkitUserSelect:"none", khtmlUserSelect:"none", mozuserSelect:"none",OuserSelect:"none",userSelect:"none" }} key={index} id ={item.TASK_ID} 
-                    onDoubleClick={()=>{
-                        console.log("task", item)
-                    }}>
-                        <th scope="row">{item.TASK_ID}</th>
-                        <td>{item.JOB}</td>
-                        <td>{item.STATUS}</td>
-                        <td>{item.CATEGORY}</td>
-                        <td>{item.TITLE}</td>
-                        <td>{item.PROGRESS + "%"}</td>
-                        <td>{item.REGISTER_USER_NAME}</td>
-                        <td>{item.ASSIGNEE_NAME}</td>
-                        <td>{item.START_DATE}</td>
-                        <td>{item.END_DATE}</td>
-                        <td>{item.EFFORT}</td>                     
+                    <tr  target="_blank" className="" style={{cursor:"pointer"}} style={{ WebkitUserSelect:"none", khtmlUserSelect:"none", mozuserSelect:"none",OuserSelect:"none",userSelect:"none" }} key={index} id ={item.TASK_ID} >
+                        <th scope="row"><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.TASK_ID}</Link></th>
+                        <td><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.JOB}</Link></td>
+                        <td><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.STATUS}</Link></td>
+                        <td><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.CATEGORY}</Link></td>
+                        <td><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.TITLE}</Link></td>
+                        <td><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.PROGRESS + "%"}</Link></td>
+                        <td><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.REGISTER_USER_NAME}</Link></td>
+                        <td><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.ASSIGNEE_NAME}</Link></td>
+                        <td><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.START_DATE}</Link></td>
+                        <td><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.END_DATE}</Link></td>
+                        <td><Link to={`/admin/task/detail-task/${item.TASK_ID}`} target="_blank">{item.EFFORT}</Link></td>                     
                     </tr>
                 )
             })
@@ -252,9 +250,7 @@ class Task extends Component {
                             </div>
                             <div className="p-2 bd-highlight task-admin-action-i" style={{marginLeft:"20px"}}><i className="fa fa-chevron-left"></i></div>
                             <div className="p-2 bd-highlight task-admin-action-i"><i className="fa fa-chevron-right"></i></div>
-                            <div className="p-2 bd-highlight task-admin-action-i" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i className="fa fa-plus"></i></div>
-                            <div className="p-2 bd-highlight task-admin-action-i" ><i className="fa fa-edit"></i></div>
-                            <div className="p-2 bd-highlight task-admin-action-i" ><i className="fa fa-trash"></i></div>                            
+                            <div className="p-2 bd-highlight task-admin-action-i" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i className="fa fa-plus"></i></div>                           
                         </div>
 
                         <table className="table">
@@ -292,7 +288,7 @@ class Task extends Component {
                                     <div className="d-flex flex-row bd-highlight mb-3">
                                     <label className="bd-highlight task-right-item-seperate-3 final-class">
                                         JOB TYPE:<br/>                                       
-                                        <select name="job" id="job" value={this.state.task.job} onChange={this.handleOnChange}  style={{width:"100%", padding:"2px",  width:"200px", height:"30px", fontSize:"16px"  }}>                                          
+                                        <select name="job" id="job" value={this.state.task.job} onChange={this.handleOnChange}  style={{ padding:"2px",  width:"200px", height:"30px", fontSize:"16px"  }}>                                          
                                             <option value="Bug Fixing">Bug Fixing</option>
                                             <option value="Documentation">Documentation</option>
                                             <option value="Develope">Develope</option>
@@ -309,7 +305,7 @@ class Task extends Component {
                                     </label>
                                     <label className="bd-highlight task-right-item-seperate-3 final-class">
                                         IMPORTANT:<br/>                                       
-                                        <select name="important" id="important" value={this.state.task.important} onChange={this.handleOnChange}   style={{width:"100%", padding:"2px", width:"200px", height:"30px", fontSize:"16px" }}>
+                                        <select name="important" id="important" value={this.state.task.important} onChange={this.handleOnChange}   style={{ padding:"2px", width:"200px", height:"30px", fontSize:"16px" }}>
                                             <option value="Very Important">Very Important</option>
                                             <option value="Important">Important</option>
                                             <option value="Normal">Normal</option>
@@ -319,7 +315,7 @@ class Task extends Component {
                                     </label>
                                     <label className="bd-highlight task-right-item-seperate-3 final-class">
                                         CATEGORY:<br/>                                       
-                                        <select name="category" id="category" value={this.state.task.category}  onChange={this.handleOnChange}  style={{width:"100%", padding:"2px", width:"200px", height:"30px", fontSize:"16px" }}>
+                                        <select name="category" id="category" value={this.state.task.category}  onChange={this.handleOnChange}  style={{ padding:"2px", width:"200px", height:"30px", fontSize:"16px" }}>
                                             <option value="KFC">KFC</option>
                                             <option value="CYBER">CYBER</option>
                                         </select>

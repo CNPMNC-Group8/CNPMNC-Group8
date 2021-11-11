@@ -39,3 +39,15 @@ exports.delete_task = function(req,res){
         res.send({result:response});
     });
 }
+
+exports.count_task_category = function(req,res){
+    Task.count_task_category(function(response){
+        res.send({result:response})
+    })
+}
+
+exports.count_employees_phase = function(req,res){
+    Task.count_employees_phase(function(response){
+        res.send({result:response})
+    })
+}

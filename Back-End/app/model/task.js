@@ -176,6 +176,80 @@ Task.delete = function(task_id,result){
 }
 
 
+Task.count_task_category = function(result) {
+    const query = `
+    WITH COUNT_KFC AS(
+        SELECT COUNT(*) AS COUNT_KFC
+        FROM TASK
+        WHERE CATEGORY = 'KFC'
+    ),
+    COUNT_CYBER AS(
+        SELECT COUNT(*) AS COUNT_CYBER
+        FROM TASK
+        WHERE CATEGORY = 'CYBER'
+    ),
+    COUNT_TOTAL_TASK AS(
+        SELECT COUNT(*) AS COUNT_TOTAL_TASK
+        FROM TASK
+    )
+    SELECT A.*, B.*, C.*
+    FROM COUNT_KFC A, COUNT_CYBER B, COUNT_TOTAL_TASK C
+    `;
+    db.query(query, function(err, task){
+        if(err){
+            result("Lấy danh sách Task không thành công :(");
+        }
+        else{
+            result(task)
+        }
+    });
+}
+
+
+
+Task.count_employees_phase = function(result) {
+    const query = `
+    WITH COUNT_REGISTER AS(
+        SELECT COUNT(DISTINCT REGISTER_USER) AS COUNT_REGISTER_USER
+        FROM TASK
+    ),
+    COUNT_CONFIRMATION AS(
+        SELECT COUNT(DISTINCT CONFIRMATION) AS COUNT_CONFIRMATION
+        FROM TASK
+    ),
+    COUNT_IMPLEMENTATION AS(
+        SELECT COUNT(DISTINCT IMPLEMENTATION) AS COUNT_IMPLEMENTATION
+        FROM TASK
+    ),
+    COUNT_TEST AS(
+        SELECT COUNT(DISTINCT TEST) AS COUNT_TEST
+        FROM TASK
+    ),
+    COUNT_APPROVAL AS(
+        SELECT COUNT(DISTINCT APPROVAL) AS COUNT_APPROVAL
+        FROM TASK
+    ),
+    COUNT_FINISH AS(
+        SELECT COUNT(DISTINCT FINISH) AS COUNT_FINISH
+        FROM TASK
+    ),
+    COUNT_TOTAL_PERSON AS(
+        SELECT COUNT(*) AS COUNT_EMPLOYEES
+        FROM STAFF
+    )
+    
+    SELECT A.*, B.*, C.*, D.*, E.*,F.*,G.*
+    FROM COUNT_REGISTER A, COUNT_CONFIRMATION B , COUNT_IMPLEMENTATION C, COUNT_TEST D, COUNT_APPROVAL E, COUNT_FINISH F, COUNT_TOTAL_PERSON G
+    `;
+    db.query(query, function(err, task){
+        if(err){
+            result("Lấy danh sách Task không thành công :(");
+        }
+        else{
+            result(task)
+        }
+    });
+}
 
 
 

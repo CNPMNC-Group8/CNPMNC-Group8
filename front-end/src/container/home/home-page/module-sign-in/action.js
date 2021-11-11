@@ -5,8 +5,7 @@ import {POST_SIGN_IN_REQUEST,
     from './constant'
 import Axios from 'axios'
 
-
-export const PostSignInAPI = (user) =>{
+export const PostSignInAPI = (user,history) =>{
     return dispatch =>{
         dispatch(PostSignInRequest())
         Axios({
@@ -16,6 +15,7 @@ export const PostSignInAPI = (user) =>{
         })
         .then(result =>{
             dispatch(PostSignInSuccess(result.data))
+            history.push("/admin/dashboard")
             console.log("login",result.data)
             localStorage.setItem("user",JSON.stringify(result.data.staff[0].FULL_NAME))
             localStorage.setItem("accessToken",JSON.stringify(result.data.access_token))
